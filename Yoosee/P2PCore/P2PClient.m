@@ -29,7 +29,7 @@
 #import "MPNotificationView.h"
 #import "CameraManager.h"
 #import "RtspInterface.h"
-#import "FfmpegInterface.h"
+//#import "FfmpegInterface.h"
 #import "UDPManager.h"
 
 static sRecFilenameType playbackFiles[1024];//视频回放修复
@@ -670,7 +670,7 @@ void commandSettingInAction(DWORD dwCmd, DWORD  dwOption , DWORD * pdwData,  DWO
 {
     [self setP2pCallState:P2PCALL_STATUS_NONE];
     [[RtspInterface sharedDefault]DestroyRtspConnection];
-    [[FfmpegInterface sharedDefault]vDestoryVideoDecoder];
+//    [[FfmpegInterface sharedDefault]vDestoryVideoDecoder];
 }
 
 - (void)sendCommandType:(int)type andOption:(int)option
