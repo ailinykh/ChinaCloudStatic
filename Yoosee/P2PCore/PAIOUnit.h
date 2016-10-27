@@ -26,5 +26,5 @@
 - (BOOL)uninitWithAutioUnit;
 
 
--(uint8_t)setSpeckState:(BOOL)state;
+-(void)setSpeckState:(BOOL)state;
 @end

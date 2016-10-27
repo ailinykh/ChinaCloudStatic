@@ -8,7 +8,6 @@
 
 #import "PAIOUnit.h"
 #import <AudioUnit/AudioUnit.h>
-#import "RtspInterface.h"
 
 //什么含义
 #define kOutputBus 0
@@ -125,10 +124,6 @@ static OSStatus playbackCallback(void *inRefCon,
     if ([[P2PClient sharedClient]p2pCallState] == P2PCALL_STATUS_READY_P2P)
     {
         isGetAudioOk = fgGetAudioDataToPlay(ioData->mBuffers[0].mData, ioData->mBuffers[0].mDataByteSize );
-    }
-    else if ([[P2PClient sharedClient]p2pCallState] == P2PCALL_STATUS_READY_RTSP)
-    {
-        isGetAudioOk = [[RtspInterface sharedDefault]GetAudioBuffer:ioData->mBuffers[0].mData dwLength:ioData->mBuffers[0].mDataByteSize];
     }
     if ([[PAIOUnit sharedUnit] muteAudio] || !isGetAudioOk /*|| (NO == [[PAIOUnit sharedUnit] silentAudio])*/)
     {
@@ -367,10 +362,6 @@ static OSStatus playbackCallback(void *inRefCon,
             {
                 vFillAudioRawData(bufferList->mBuffers[0].mData,  bufferList->mBuffers[0].mDataByteSize);
             }
-            else if ([[P2PClient sharedClient]p2pCallState] == P2PCALL_STATUS_READY_RTSP)
-            {
-                [[RtspInterface sharedDefault]PushIntercomData:bufferList->mBuffers[0].mData dwLength:bufferList->mBuffers[0].mDataByteSize];
-            }
         }
     }
 }
@@ -473,7 +464,7 @@ static OSStatus playbackCallback(void *inRefCon,
     AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(UInt32), &audioRoute);
 }
 
--(uint8_t)setSpeckState:(BOOL)state{
+-(void)setSpeckState:(BOOL)state{
     
     if ([[P2PClient sharedClient]p2pCallState] == P2PCALL_STATUS_READY_P2P) {
         self.silentAudio = state;
@@ -485,27 +476,6 @@ static OSStatus playbackCallback(void *inRefCon,
             }
         }
     }
-    else if ([[P2PClient sharedClient]p2pCallState] == P2PCALL_STATUS_READY_RTSP)
-    {
-        if(state)
-        {
-            self.silentAudio = state;
-            [[RtspInterface sharedDefault] CloseIntercom];
-        }
-        else
-        {
-            uint8_t ret = [[RtspInterface sharedDefault] OpenIntercom];
-            if (ret == intercom_connect_ok) {
-                self.silentAudio = state;
-            }
-            else
-            {
-                return ret;
-            }
-
-        }
-    }
-    return intercom_connect_ok;
 }
 
 

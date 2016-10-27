@@ -13,16 +13,26 @@
 #import "OpenGLView.h"
 #import "CustomBorderButton.h"
 #import "CustomView.h"
-#import "YProgressView.h"//rtsp监控界面弹出修改
-
+#import "ProgressImageView.h"
+//#import "MainController.h"
+//#import "AppDelegate.h"
 #define FocalLength_Elongation_btnTag 300
 #define FocalLength_Shorten_btnTag 301
 #define FocalLength_Change_sliderTag 302
 
-@interface P2PMonitorController : UIViewController<AVCaptureVideoDataOutputSampleBufferDelegate,UIGestureRecognizerDelegate,TouchButtonDelegate,OpenGLViewDelegate,UIScrollViewDelegate,UIAlertViewDelegate>//监控界面缩放
+//竖屏
+#define SOUND_BUTTON_H_TAG 1603221
+#define SWITCH_SCREEN_BUTTON_H_TAG 1603222
+#define DEFENCE_BUTTON_H_TAG 1603223
+#define TALK_BUTTON_H_TAG 1603224
+#define SCREENSHOT_BUTTON_H_TAG 1603225
+#define PROMPT_BUTTON_TAG 1603226
+
+@class CustomTopBar;
+@interface P2PMonitorController : UIViewController<AVCaptureVideoDataOutputSampleBufferDelegate,UIGestureRecognizerDelegate,TouchButtonDelegate,OpenGLViewDelegate,UIScrollViewDelegate,UIAlertViewDelegate>
 @property (nonatomic, strong) OpenGLView *remoteView;
 @property (nonatomic) BOOL isReject;
-@property (nonatomic) BOOL isFullScreen;
+@property (nonatomic) BOOL isFullScreen4B3;
 @property (nonatomic) BOOL isShowControllerBar;
 @property (nonatomic) BOOL isVideoModeHD;
 
@@ -36,9 +46,7 @@
 @property (strong, nonatomic) UIView *controllerRight;
 @property (strong, nonatomic) UIView *controllerRightBg;//重新调整监控画面
 @property (strong, nonatomic) UIView *bottomBarView;//重新调整监控画面
-
-@property (strong, nonatomic) UILabel * numberViewer;
-@property (nonatomic) int number;
+@property (strong, nonatomic) UIView *controllBar;
 
 @property (nonatomic) BOOL isAlreadyShowResolution;//重新调整监控画面
 
@@ -64,14 +72,30 @@
 @property(nonatomic, strong) UIButton *lightButton;
 @property (nonatomic) BOOL isLightSwitchOn;
 @property (strong, nonatomic) UIActivityIndicatorView *progressView;
+@property (nonatomic) BOOL isSupportLightSwitch;
 
-@property (nonatomic) BOOL isRtspConnection;
 
-@property (strong, nonatomic) YProgressView *yProgressView;//rtsp监控界面弹出修改
-@property (strong, nonatomic) UIView *topView;
-@property (strong, nonatomic) UIView *topBarView;
 
 @property (strong, nonatomic) UIView *focalLengthView;
+@property (nonatomic) BOOL isSupportFocalLength;
 @property (strong, nonatomic) UIPinchGestureRecognizer *pinchGestureRecognizer;
+
+//判断当前监控处于横屏还是竖屏界面
+@property (assign,nonatomic) BOOL isFullScreen;
+@property (strong, nonatomic) UIView *fullScreenBgView;
+
+//竖屏控件
+@property (nonatomic,strong) CustomTopBar *topBar;   //全屏时，隐藏
+@property (nonatomic,strong) UIView *canvasView;    //显示监控画面的载体
+@property (assign,nonatomic) CGRect canvasframe;
+@property (nonatomic,strong) UIButton *promptButton;
+@property (nonatomic,strong) UILabel *labelTip;
+@property (strong, nonatomic) ProgressImageView *yProgressView;
+@property (nonatomic,strong) UIView *midToolHView;   //全屏时，隐藏
+@property (nonatomic,strong) UIView *bottomToolHView;   //全屏时，隐藏
+@property (nonatomic,strong) UIButton *defenceButtonH;   //布防撤防按钮
+
+//YES表示当前处于监控中，且接收到推送，点击观看监控
+@property (assign,nonatomic) BOOL isIntoMonitorFromMonitor;
 
 @end

@@ -57,7 +57,7 @@
     AVCodec *codec;
     _pDecodeAVC = NULL;
     // 寻找编码器
-    codec = avcodec_find_decoder(CODEC_ID_H264);
+    codec = avcodec_find_decoder(AV_CODEC_ID_H264);
     if (!codec) {
         NSLog(@"codec not found\n");
     }
@@ -65,7 +65,7 @@
     _pDecodeAVC->bit_rate = 4000000;
     _pDecodeAVC->time_base.den = 15;/////may be remote frame rate
     _pDecodeAVC->time_base.num = 1;
-    _pDecodeAVC->pix_fmt = PIX_FMT_YUV420P;
+    _pDecodeAVC->pix_fmt = AV_PIX_FMT_YUV420P;
     _pDecodeAVC->codec_type = AVMEDIA_TYPE_VIDEO;
     _pDecodeAVC->rc_buffer_aggressivity = 1.0;
     //浮点数. 表示开启解码器码流缓冲(decoder bitstream buffer)
