@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		7340D2911DC39189001558C6 /* UDPManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924A9F1DB90AE800508979 /* UDPManager.h */; };
+		7340D2921DC39264001558C6 /* LocalDevice.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924A971DB90AE800508979 /* LocalDevice.h */; };
 		736377851DBE3BAA0027EE34 /* Contact.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924A8A1DB90AE800508979 /* Contact.h */; };
 		736377861DBE3D780027EE34 /* FListManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AA51DB90AE800508979 /* FListManager.h */; };
 		736377871DBE43810027EE34 /* ShakeManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AAB1DB90AE800508979 /* ShakeManager.h */; };
@@ -94,6 +96,71 @@
 		73FBAA791DC1FBB600527A76 /* ProgressImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FBAA781DC1FBB600527A76 /* ProgressImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73FBAA7C1DC1FD6000527A76 /* CustomTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FBAA7B1DC1FD6000527A76 /* CustomTopBar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73FBAA801DC1FEF900527A76 /* PAIOUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FBAA7F1DC1FEF900527A76 /* PAIOUnit.m */; };
+		73FC4D981DC3609700B3027E /* FfmpegInterface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B201DB90AE800508979 /* FfmpegInterface.h */; };
+		73FC4D991DC3635D00B3027E /* avcodec.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA8A1DC22B8200527A76 /* avcodec.h */; };
+		73FC4D9A1DC3659F00B3027E /* Constants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA7D1DC1FE4D00527A76 /* Constants.h */; };
+		73FC4D9B1DC3660D00B3027E /* P2PMonitorController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA741DC1FB6C00527A76 /* P2PMonitorController.h */; };
+		73FC4D9C1DC3678000B3027E /* ProgressImageView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA771DC1FBB600527A76 /* ProgressImageView.h */; };
+		73FC4D9D1DC3707300B3027E /* avfft.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA8B1DC22B8200527A76 /* avfft.h */; };
+		73FC4D9E1DC3707300B3027E /* dxva2.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA8C1DC22B8200527A76 /* dxva2.h */; };
+		73FC4D9F1DC3707300B3027E /* old_codec_ids.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA8D1DC22B8200527A76 /* old_codec_ids.h */; };
+		73FC4DA01DC3707400B3027E /* vaapi.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA8E1DC22B8200527A76 /* vaapi.h */; };
+		73FC4DA11DC3707400B3027E /* vda.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA8F1DC22B8200527A76 /* vda.h */; };
+		73FC4DA21DC3707400B3027E /* vdpau.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA901DC22B8200527A76 /* vdpau.h */; };
+		73FC4DA31DC3707400B3027E /* version.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA911DC22B8200527A76 /* version.h */; };
+		73FC4DA41DC3707400B3027E /* xvmc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA921DC22B8200527A76 /* xvmc.h */; };
+		73FC4DA51DC3707400B3027E /* avcodec.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA941DC22B8200527A76 /* avcodec.h */; };
+		73FC4DA61DC3707400B3027E /* avformat.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA951DC22B8200527A76 /* avformat.h */; };
+		73FC4DA71DC3707400B3027E /* avio.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA961DC22B8200527A76 /* avio.h */; };
+		73FC4DA81DC3707400B3027E /* version.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA971DC22B8200527A76 /* version.h */; };
+		73FC4DA91DC3707400B3027E /* adler32.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA991DC22B8200527A76 /* adler32.h */; };
+		73FC4DAA1DC3707400B3027E /* aes.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA9A1DC22B8200527A76 /* aes.h */; };
+		73FC4DAB1DC3707400B3027E /* attributes.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA9B1DC22B8200527A76 /* attributes.h */; };
+		73FC4DAC1DC3707400B3027E /* audio_fifo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA9C1DC22B8200527A76 /* audio_fifo.h */; };
+		73FC4DAD1DC3707400B3027E /* audioconvert.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA9D1DC22B8200527A76 /* audioconvert.h */; };
+		73FC4DAE1DC3707400B3027E /* avassert.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA9E1DC22B8200527A76 /* avassert.h */; };
+		73FC4DAF1DC3707400B3027E /* avconfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA9F1DC22B8200527A76 /* avconfig.h */; };
+		73FC4DB01DC3707400B3027E /* avstring.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAA01DC22B8200527A76 /* avstring.h */; };
+		73FC4DB11DC3707400B3027E /* avutil.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAA11DC22B8200527A76 /* avutil.h */; };
+		73FC4DB21DC3707400B3027E /* base64.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAA21DC22B8200527A76 /* base64.h */; };
+		73FC4DB31DC3707400B3027E /* blowfish.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAA31DC22B8200527A76 /* blowfish.h */; };
+		73FC4DB41DC3707400B3027E /* bprint.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAA41DC22B8200527A76 /* bprint.h */; };
+		73FC4DB51DC3707400B3027E /* bswap.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAA51DC22B8200527A76 /* bswap.h */; };
+		73FC4DB61DC3707400B3027E /* channel_layout.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAA61DC22B8200527A76 /* channel_layout.h */; };
+		73FC4DB71DC3707400B3027E /* common.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAA71DC22B8200527A76 /* common.h */; };
+		73FC4DB81DC3707400B3027E /* cpu.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAA81DC22B8200527A76 /* cpu.h */; };
+		73FC4DB91DC3707400B3027E /* crc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAA91DC22B8200527A76 /* crc.h */; };
+		73FC4DBA1DC3707400B3027E /* dict.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAAA1DC22B8200527A76 /* dict.h */; };
+		73FC4DBB1DC3707400B3027E /* error.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAAB1DC22B8200527A76 /* error.h */; };
+		73FC4DBC1DC3707400B3027E /* eval.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAAC1DC22B8200527A76 /* eval.h */; };
+		73FC4DBD1DC3707400B3027E /* fifo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAAD1DC22B8200527A76 /* fifo.h */; };
+		73FC4DBE1DC3707400B3027E /* file.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAAE1DC22B8200527A76 /* file.h */; };
+		73FC4DBF1DC3707400B3027E /* hmac.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAAF1DC22B8200527A76 /* hmac.h */; };
+		73FC4DC01DC3707400B3027E /* imgutils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAB01DC22B8200527A76 /* imgutils.h */; };
+		73FC4DC11DC3707400B3027E /* intfloat.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAB11DC22B8200527A76 /* intfloat.h */; };
+		73FC4DC21DC3707400B3027E /* intfloat_readwrite.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAB21DC22B8200527A76 /* intfloat_readwrite.h */; };
+		73FC4DC31DC3707400B3027E /* intreadwrite.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAB31DC22B8200527A76 /* intreadwrite.h */; };
+		73FC4DC41DC3707400B3027E /* lfg.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAB41DC22B8200527A76 /* lfg.h */; };
+		73FC4DC51DC3707400B3027E /* log.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAB51DC22B8200527A76 /* log.h */; };
+		73FC4DC61DC3707400B3027E /* mathematics.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAB61DC22B8200527A76 /* mathematics.h */; };
+		73FC4DC71DC3707400B3027E /* md5.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAB71DC22B8200527A76 /* md5.h */; };
+		73FC4DC81DC3707400B3027E /* mem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAB81DC22B8200527A76 /* mem.h */; };
+		73FC4DC91DC3707400B3027E /* old_pix_fmts.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAB91DC22B8200527A76 /* old_pix_fmts.h */; };
+		73FC4DCA1DC3707400B3027E /* opt.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAABA1DC22B8200527A76 /* opt.h */; };
+		73FC4DCB1DC3707400B3027E /* parseutils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAABB1DC22B8200527A76 /* parseutils.h */; };
+		73FC4DCC1DC3707400B3027E /* pixdesc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAABC1DC22B8200527A76 /* pixdesc.h */; };
+		73FC4DCD1DC3707400B3027E /* pixfmt.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAABD1DC22B8200527A76 /* pixfmt.h */; };
+		73FC4DCE1DC3707400B3027E /* random_seed.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAABE1DC22B8200527A76 /* random_seed.h */; };
+		73FC4DCF1DC3707400B3027E /* rational.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAABF1DC22B8200527A76 /* rational.h */; };
+		73FC4DD01DC3707400B3027E /* samplefmt.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAC01DC22B8200527A76 /* samplefmt.h */; };
+		73FC4DD11DC3707400B3027E /* sha.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAC11DC22B8200527A76 /* sha.h */; };
+		73FC4DD21DC3707400B3027E /* time.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAC21DC22B8200527A76 /* time.h */; };
+		73FC4DD31DC3707400B3027E /* timecode.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAC31DC22B8200527A76 /* timecode.h */; };
+		73FC4DD41DC3707400B3027E /* timestamp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAC41DC22B8200527A76 /* timestamp.h */; };
+		73FC4DD51DC3707400B3027E /* version.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAC51DC22B8200527A76 /* version.h */; };
+		73FC4DD61DC3707400B3027E /* xtea.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAC61DC22B8200527A76 /* xtea.h */; };
+		73FC4DD71DC3707400B3027E /* swscale.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAC81DC22B8200527A76 /* swscale.h */; };
+		73FC4DD81DC3707400B3027E /* version.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAAC91DC22B8200527A76 /* version.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,6 +170,73 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				7340D2921DC39264001558C6 /* LocalDevice.h in CopyFiles */,
+				7340D2911DC39189001558C6 /* UDPManager.h in CopyFiles */,
+				73FC4D9D1DC3707300B3027E /* avfft.h in CopyFiles */,
+				73FC4D9E1DC3707300B3027E /* dxva2.h in CopyFiles */,
+				73FC4D9F1DC3707300B3027E /* old_codec_ids.h in CopyFiles */,
+				73FC4DA01DC3707400B3027E /* vaapi.h in CopyFiles */,
+				73FC4DA11DC3707400B3027E /* vda.h in CopyFiles */,
+				73FC4DA21DC3707400B3027E /* vdpau.h in CopyFiles */,
+				73FC4DA31DC3707400B3027E /* version.h in CopyFiles */,
+				73FC4DA41DC3707400B3027E /* xvmc.h in CopyFiles */,
+				73FC4DA51DC3707400B3027E /* avcodec.h in CopyFiles */,
+				73FC4DA61DC3707400B3027E /* avformat.h in CopyFiles */,
+				73FC4DA71DC3707400B3027E /* avio.h in CopyFiles */,
+				73FC4DA81DC3707400B3027E /* version.h in CopyFiles */,
+				73FC4DA91DC3707400B3027E /* adler32.h in CopyFiles */,
+				73FC4DAA1DC3707400B3027E /* aes.h in CopyFiles */,
+				73FC4DAB1DC3707400B3027E /* attributes.h in CopyFiles */,
+				73FC4DAC1DC3707400B3027E /* audio_fifo.h in CopyFiles */,
+				73FC4DAD1DC3707400B3027E /* audioconvert.h in CopyFiles */,
+				73FC4DAE1DC3707400B3027E /* avassert.h in CopyFiles */,
+				73FC4DAF1DC3707400B3027E /* avconfig.h in CopyFiles */,
+				73FC4DB01DC3707400B3027E /* avstring.h in CopyFiles */,
+				73FC4DB11DC3707400B3027E /* avutil.h in CopyFiles */,
+				73FC4DB21DC3707400B3027E /* base64.h in CopyFiles */,
+				73FC4DB31DC3707400B3027E /* blowfish.h in CopyFiles */,
+				73FC4DB41DC3707400B3027E /* bprint.h in CopyFiles */,
+				73FC4DB51DC3707400B3027E /* bswap.h in CopyFiles */,
+				73FC4DB61DC3707400B3027E /* channel_layout.h in CopyFiles */,
+				73FC4DB71DC3707400B3027E /* common.h in CopyFiles */,
+				73FC4DB81DC3707400B3027E /* cpu.h in CopyFiles */,
+				73FC4DB91DC3707400B3027E /* crc.h in CopyFiles */,
+				73FC4DBA1DC3707400B3027E /* dict.h in CopyFiles */,
+				73FC4DBB1DC3707400B3027E /* error.h in CopyFiles */,
+				73FC4DBC1DC3707400B3027E /* eval.h in CopyFiles */,
+				73FC4DBD1DC3707400B3027E /* fifo.h in CopyFiles */,
+				73FC4DBE1DC3707400B3027E /* file.h in CopyFiles */,
+				73FC4DBF1DC3707400B3027E /* hmac.h in CopyFiles */,
+				73FC4DC01DC3707400B3027E /* imgutils.h in CopyFiles */,
+				73FC4DC11DC3707400B3027E /* intfloat.h in CopyFiles */,
+				73FC4DC21DC3707400B3027E /* intfloat_readwrite.h in CopyFiles */,
+				73FC4DC31DC3707400B3027E /* intreadwrite.h in CopyFiles */,
+				73FC4DC41DC3707400B3027E /* lfg.h in CopyFiles */,
+				73FC4DC51DC3707400B3027E /* log.h in CopyFiles */,
+				73FC4DC61DC3707400B3027E /* mathematics.h in CopyFiles */,
+				73FC4DC71DC3707400B3027E /* md5.h in CopyFiles */,
+				73FC4DC81DC3707400B3027E /* mem.h in CopyFiles */,
+				73FC4DC91DC3707400B3027E /* old_pix_fmts.h in CopyFiles */,
+				73FC4DCA1DC3707400B3027E /* opt.h in CopyFiles */,
+				73FC4DCB1DC3707400B3027E /* parseutils.h in CopyFiles */,
+				73FC4DCC1DC3707400B3027E /* pixdesc.h in CopyFiles */,
+				73FC4DCD1DC3707400B3027E /* pixfmt.h in CopyFiles */,
+				73FC4DCE1DC3707400B3027E /* random_seed.h in CopyFiles */,
+				73FC4DCF1DC3707400B3027E /* rational.h in CopyFiles */,
+				73FC4DD01DC3707400B3027E /* samplefmt.h in CopyFiles */,
+				73FC4DD11DC3707400B3027E /* sha.h in CopyFiles */,
+				73FC4DD21DC3707400B3027E /* time.h in CopyFiles */,
+				73FC4DD31DC3707400B3027E /* timecode.h in CopyFiles */,
+				73FC4DD41DC3707400B3027E /* timestamp.h in CopyFiles */,
+				73FC4DD51DC3707400B3027E /* version.h in CopyFiles */,
+				73FC4DD61DC3707400B3027E /* xtea.h in CopyFiles */,
+				73FC4DD71DC3707400B3027E /* swscale.h in CopyFiles */,
+				73FC4DD81DC3707400B3027E /* version.h in CopyFiles */,
+				73FC4D9C1DC3678000B3027E /* ProgressImageView.h in CopyFiles */,
+				73FC4D9B1DC3660D00B3027E /* P2PMonitorController.h in CopyFiles */,
+				73FC4D9A1DC3659F00B3027E /* Constants.h in CopyFiles */,
+				73FC4D991DC3635D00B3027E /* avcodec.h in CopyFiles */,
+				73FC4D981DC3609700B3027E /* FfmpegInterface.h in CopyFiles */,
 				736377F11DBF64B400732280 /* YProgressView.h in CopyFiles */,
 				736377F01DBF649C00732280 /* CustomView.h in CopyFiles */,
 				736377EF1DBF648A00732280 /* CustomBorderButton.h in CopyFiles */,
@@ -860,7 +994,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Yoosee/rtsp/ffmpeg/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -903,7 +1037,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/Yoosee/rtsp/ffmpeg/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;

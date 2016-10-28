@@ -31,6 +31,8 @@
 #import "ContactDAO.h"
 #import "FListManager.h"
 #import "Contact.h"
+#import "RtspInterface.h"
+#import "FfmpegInterface.h"
 #import "UDPManager.h"//rtsp监控界面弹出修改
 #import "LocalDevice.h"//rtsp监控界面弹出修改
 #import "CustomTopBar.h"
@@ -50,6 +52,10 @@
     BOOL _isOkRenderVideoFrame;//YES表示图像渲染出来了
     
     BOOL _isCanAutoOrientation;//限制屏幕什么时候可以旋转
+    
+    BOOL _isRtspConnection;
+    
+    FRAME_VIDEO _videoframe;
 }
 @end
 
@@ -89,6 +95,13 @@
     if (self.scrollView) {
         [self.scrollView release];
     }
+    
+    if (_isRtspConnection)
+    {
+        [[P2PClient sharedClient] rtspHungUp];
+        [[PAIOUnit sharedUnit] stopAudio];
+    }
+    
     [super dealloc];
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -453,7 +466,7 @@
     [self initComponentForHorizontalScreen];
     
     
-    //rtsp监控界面弹出修改
+    //Rtsp monitoring interface pop-up changes
     [self monitorP2PCall];
     
     //设置代理
@@ -647,50 +660,167 @@
 }
 
 //rtsp监控界面弹出修改
--(void)monitorP2PCall{
+-(void)monitorP2PCall {
     [[P2PClient sharedClient] setP2pCallState:P2PCALL_STATUS_CALLING];
     BOOL isBCalled = [[P2PClient sharedClient] isBCalled];
     P2PCallType type = [[P2PClient sharedClient] p2pCallType];
     NSString *callId = [[P2PClient sharedClient] callId];
     NSString *callPassword = [[P2PClient sharedClient] callPassword];
     
-    if(!isBCalled){
-        BOOL isApMode = NO;
-        if (!isApMode)
-        {
+    if (!isBCalled) {
+        char* ipstr = nil;
+        NSString* str = [self GetIpStringBy3CID:[callId intValue]];
+        if (str) {
+            ipstr = (char*)[str UTF8String];
+        }
+        
+        if (ipstr == nil) {
             [[P2PClient sharedClient] p2pCallWithId:callId password:callPassword callType:type];
         }
         else
         {
-            [[P2PClient sharedClient] p2pCallWithId:@"1" password:callPassword callType:type];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                BOOL ret = [[RtspInterface sharedDefault] CreateRtspConnection:ipstr];
+                if (ret)
+                {
+                    [[P2PClient sharedClient] setP2pCallState:P2PCALL_STATUS_READY_RTSP];
+                    [[PAIOUnit sharedUnit] startAudioWithCallType:[[P2PClient sharedClient]p2pCallType]];
+                    [[FfmpegInterface sharedDefault] vInitVideoDecoder];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        _isRtspConnection = YES;
+                        [self monitorStartRender:nil];
+                    });
+                }
+                else
+                {
+                    [[P2PClient sharedClient] setP2pCallState:P2PCALL_STATUS_NONE];
+                    dispatch_async(dispatch_get_main_queue(),^{
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    });
+                }
+            });
         }
     }
+}
+
+//Rtsp monitoring interface pop-up changes
+-(NSString*) GetIpStringBy3CID:(int) contactId
+{
+    NSArray* deviceList = [[UDPManager sharedDefault] getLanDevices];
+    
+    for (int i=0; i<[deviceList count]; i++)
+    {
+        LocalDevice *localDevice = [deviceList objectAtIndex:i];
+        if (localDevice.contactId.intValue == contactId && (localDevice.contactType == 7 || localDevice.contactType == 5) && localDevice.isSupportRtsp)
+        {
+            NSString* address = localDevice.address;
+            return address;
+        }
+    }
+    return nil;
 }
 
 - (void)renderView
 {
     _isPlaying = YES;
     
-    GAVFrame * m_pAVFrame ;
-    while (!self.isReject)
+    if (_isRtspConnection)
     {
-        if(fgGetVideoFrameToDisplay(&m_pAVFrame))
+        GAVFrame gavframe;
+        gavframe.data[0] = (BYTE*)malloc(MAX_VIDEO_RES_SIZE);
+        gavframe.data[1] = (BYTE*)malloc(MAX_VIDEO_RES_SIZE/4);
+        gavframe.data[2] = (BYTE*)malloc(MAX_VIDEO_RES_SIZE/4);
+        
+        int dwErrorCount = 0;   //8秒取不到数据就退出
+        while (!self.isReject)
         {
-            if (!_isOkRenderVideoFrame) {
-                _isOkRenderVideoFrame = YES;
-                _isOkFirstRenderVideoFrame = YES;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    //隐藏监控连接中的UI
-                    [self hiddenMonitoringUI:YES callErrorInfo:nil isReCall:NO];
-                    [self didHiddenMonitorUIWith:YES];
-                });
+            BOOL ret = [[RtspInterface sharedDefault]GetVideoFrame:&_videoframe];
+            if (!ret)
+            {
+                usleep(5*1000);
+                dwErrorCount ++;
+                if (dwErrorCount == 8*200) {
+                    break;
+                }
             }
-            [self.remoteView render:m_pAVFrame];
-            vReleaseVideoFrame();
+            else
+            {
+                dwErrorCount = 0;
+                if ([[FfmpegInterface sharedDefault]fgDecodePictureFrame:_videoframe.frame_data dwSize:_videoframe.dataSize u6PTS:0 pFrame:&gavframe])
+                {
+                    
+                    if (gavframe.height*16 != gavframe.width*9) {
+                        if ([[P2PClient sharedClient] is16B9]) {
+                            [[P2PClient sharedClient]setIs16B9:NO];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [self MoveRenderViewWhenIniting];
+                            });
+                            continue;
+                        }
+                    }
+                    else
+                    {
+                        if (![[P2PClient sharedClient] is16B9]) {
+                            [[P2PClient sharedClient]setIs16B9:YES];
+                            dispatch_async(dispatch_get_main_queue(), ^{
+                                [self MoveRenderViewWhenIniting];
+                            });
+                            continue;
+                        }
+                    }
+                    [self.remoteView render:&gavframe];
+                }
+            }
         }
-        usleep(10000);
+        
+        if (dwErrorCount == 8*200) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[P2PClient sharedClient]rtspHungUp];
+                [self.view makeToast:NSLocalizedString(@"id_timeout", nil)];
+                NSLog(@"‼️id_timeout");
+//                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//                    usleep(800000);
+//                    dispatch_async(dispatch_get_main_queue(), ^{
+//                        if ([[AppDelegate sharedDefault]dwApContactID] == 0) {
+//                            MainController* mainContainer = [[AppDelegate sharedDefault] mainController];
+//                            [mainContainer dismissP2PView];
+//                        }
+//                        else
+//                        {
+//                            MainController* mainContainer = [[AppDelegate sharedDefault] mainController_ap];
+//                            [mainContainer dismissP2PView];
+//                        }
+//                    });
+//                });
+                
+            });
+        }
+        free(gavframe.data[0]);
+        free(gavframe.data[1]);
+        free(gavframe.data[2]);
     }
-
+    else
+    {
+        GAVFrame * m_pAVFrame ;
+        while (!self.isReject)
+        {
+            if(fgGetVideoFrameToDisplay(&m_pAVFrame))
+            {
+                if (!_isOkRenderVideoFrame) {
+                    _isOkRenderVideoFrame = YES;
+                    _isOkFirstRenderVideoFrame = YES;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        //隐藏监控连接中的UI
+                        [self hiddenMonitoringUI:YES callErrorInfo:nil isReCall:NO];
+                        [self didHiddenMonitorUIWith:YES];
+                    });
+                }
+                [self.remoteView render:m_pAVFrame];
+                vReleaseVideoFrame();
+            }
+            usleep(10000);
+        }
+    }
     
     _isPlaying = NO;
 }
@@ -1261,7 +1391,7 @@
     
     //导航栏
     CustomTopBar *topBar = [[CustomTopBar alloc] initWithFrame:CGRectMake(0, 0, width, NAVIGATION_BAR_HEIGHT)];
-    [topBar setBackgroundImageViewWith:[UIImage imageNamed:@"bg_navigation_bar.png"] withBackgroundColor:nil];
+//    [topBar setBackgroundImageViewWith:[UIImage imageNamed:@"bg_navigation_bar.png"] withBackgroundColor:nil];
     //视频监控连接中的标题
     NSString *deviceName = @"";
     
@@ -1724,7 +1854,13 @@
         while (_isPlaying) {
             usleep(50*1000);
         }
-        
+        if (!_isRtspConnection) {
+            [[P2PClient sharedClient] p2pHungUp];
+        }
+        else
+        {
+            [[P2PClient sharedClient] rtspHungUp];
+        }
         [[P2PClient sharedClient] p2pHungUp];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -2409,14 +2545,14 @@
 -(void)doOperationsAfterMonitorStartRender{//rtsp监控界面弹出修改
     
     /*
-     *1. 应该放在监控准备就绪之后（即渲染之后）
+     *1. Should be placed after the monitor is ready (that is, after rendering)
      */
     [[PAIOUnit sharedUnit] setMuteAudio:NO];
     [[PAIOUnit sharedUnit] setSpeckState:YES];
     
     
-    //放在渲染之后
-    if(false){//门铃推送,点按开关说话
+    //Placed after rendering
+    if(false){//Push the doorbell, tap the switch to speak
         self.isTalking = YES;
         [self.pressView setHidden:NO];
         [[PAIOUnit sharedUnit] setSpeckState:NO];
@@ -2425,21 +2561,21 @@
         [self.pressView setHidden:YES];
         [[PAIOUnit sharedUnit] setSpeckState:YES];
     }
-    //竖屏对讲按钮
+    //Vertical screen intercom button
     UIButton *talkButtonH = (UIButton *)[self.bottomToolHView viewWithTag:TALK_BUTTON_H_TAG];
-    if(false){//门铃推送
+    if(false){//Push the doorbell
         talkButtonH.selected = YES;
     }else{
         talkButtonH.selected = NO;
     }
-    //横屏对讲按钮
+    //Horizontal screen intercom button
     TouchButton *controllerTalkBtn = (TouchButton *)[self.controllBar viewWithTag:CONTROLLER_BTN_TAG_PRESS_TALK];
-    //非本地设备
+    //Non-local devices
     NSInteger deviceType1 = CONTACT_TYPE_UNKNOWN;
-    //本地设备
+    //Local device
     NSInteger deviceType2 = [[FListManager sharedFList] getType:[[P2PClient sharedClient] callId]];
     if (deviceType1 == CONTACT_TYPE_DOORBELL || deviceType2 == CONTACT_TYPE_DOORBELL) {//支持门铃,点按开关说话
-        if(false){//门铃推送
+        if(false){//Push the doorbell
             
             [controllerTalkBtn setBackgroundImage:[UIImage imageNamed:@"ic_ctl_new_send_audio_p.png"] forState:UIControlStateNormal];
         }
@@ -2448,16 +2584,16 @@
         }
         [controllerTalkBtn addTarget:self action:@selector(onControllerBtnPress:) forControlEvents:UIControlEventTouchUpInside];
     }else{
-        //不是门铃，则按住说话
+        //Not the doorbell, then hold down the talk
         [controllerTalkBtn setBackgroundImage:[UIImage imageNamed:@"ic_ctl_new_send_audio.png"] forState:UIControlStateNormal];
         [controllerTalkBtn removeTarget:self action:@selector(onControllerBtnPress:) forControlEvents:UIControlEventTouchUpInside];
         controllerTalkBtn.delegate = self;
     }
     
     
-    //放在渲染之后
-    //获取当前被监控帐号的灯状态
-    //若设备支持灯设备时，则显示开关按钮；若不支持，则隐藏
+    // After rendering on
+    // Get the status of the currently monitored account
+    // If the device supports the light device, then display the switch button; if not supported, then hidden
     //    NSString *contactId = [[P2PClient sharedClient] callId];
     //    NSString *contactPassword = [[P2PClient sharedClient] callPassword];
     //    [[P2PClient sharedClient] getLightStateWithDeviceId:contactId password:contactPassword];
@@ -2725,6 +2861,30 @@
     //左边的按住说话弹出的声音图标
     //进入横屏时，调整frame
     self.pressView.frame = CGRectMake(10, height-PRESS_LAYOUT_WIDTH_AND_HEIGHT-BOTTOM_BAR_HEIGHT, PRESS_LAYOUT_WIDTH_AND_HEIGHT/2, PRESS_LAYOUT_WIDTH_AND_HEIGHT);
+}
+
+-(void)MoveRenderViewWhenIniting
+{
+    CGFloat width = _canvasframe.size.width;
+    CGFloat height = _canvasframe.size.height;
+    if(CURRENT_VERSION<7.0){
+        height +=20;
+    }
+    
+    if([[P2PClient sharedClient] is16B9]){
+        CGFloat finalWidth = height*16/9;
+        CGFloat finalHeight = height;
+        if(finalWidth>width){
+            finalWidth = width;
+            finalHeight = width*9/16;
+        }else{
+            finalWidth = height*16/9;
+            finalHeight = height;
+        }
+        self.remoteView.frame = CGRectMake((width-finalWidth)/2, (height-finalHeight)/2, finalWidth, finalHeight);
+    }else{
+        self.remoteView.frame = CGRectMake((width-height*4/3)/2, 0, height*4/3, height);
+    }
 }
 
 @end

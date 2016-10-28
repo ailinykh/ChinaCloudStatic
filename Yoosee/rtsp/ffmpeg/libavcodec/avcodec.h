@@ -27,16 +27,16 @@
  */
 
 #include <errno.h>
-#include "../libavutil/samplefmt.h"
-#include "../libavutil/avutil.h"
-#include "../libavutil/cpu.h"
-#include "../libavutil/channel_layout.h"
-#include "../libavutil/dict.h"
-#include "../libavutil/log.h"
-#include "../libavutil/pixfmt.h"
-#include "../libavutil/rational.h"
+#include "samplefmt.h"
+#include "avutil.h"
+#include "cpu.h"
+#include "channel_layout.h"
+#include "dict.h"
+#include "log.h"
+#include "pixfmt.h"
+#include "rational.h"
 
-#include "../libavcodec/version.h"
+#include "version.h"
 /**
  * @defgroup libavc Encoding/Decoding Library
  * @{

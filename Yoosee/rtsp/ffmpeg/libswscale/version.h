@@ -24,7 +24,7 @@
  * swscale version macros
  */
 
-#include "../libavutil/avutil.h"
+#include "avutil.h"
 
 #define LIBSWSCALE_VERSION_MAJOR 2
 #define LIBSWSCALE_VERSION_MINOR 2
