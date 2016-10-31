@@ -290,17 +290,9 @@ static const GLfloat texCoords[8] = {0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0
 }
 
 static GLfloat modelviewProj[16];
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        NSLog(@"🌈%s", __PRETTY_FUNCTION__);
-    }
-    return self;
-}
-
+// nib initialization
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
-        NSLog(@"🌈%s", __PRETTY_FUNCTION__);
         [self setupOpenGL];
     }
     return self;
