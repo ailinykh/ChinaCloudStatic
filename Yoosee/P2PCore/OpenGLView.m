@@ -291,71 +291,119 @@ static const GLfloat texCoords[8] = {0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0
 
 static GLfloat modelviewProj[16];
 
-- (id)init
-{
-    
-    mat4f_LoadOrtho(-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f, modelviewProj);//shengming
-    if (self = [super init]) {
-        DLog(@"Setup Open-GL renderer: YUV ...");
-        _renderer = [[OpenGLRenderer_YUV alloc] init];
-        DLog(@"OK");
-        //        [self setFrame:[[UIScreen mainScreen] bounds]];
-        [self setFrame:CGRectMake(0, 0, 480, 300)];
-        
-        CAEAGLLayer *eaglLayer = (CAEAGLLayer*) self.layer;
-        eaglLayer.opaque = YES;
-        eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        [NSNumber numberWithBool:YES], kEAGLDrawablePropertyRetainedBacking,
-                                        kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,
-                                        nil];
-        
-        self.contentScaleFactor = [UIScreen mainScreen].scale;//渲染模糊修复
-        _viewScale = [UIScreen mainScreen].scale;//渲染模糊修复
-        _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-        
-        if (!_context ||
-            ![EAGLContext setCurrentContext:_context]) {
-            DLog(@"failed to setup EAGLContext");
-            self = nil;
-            return nil;
-        }
-        
-        glGenFramebuffers(1, &_framebuffer);
-        glGenRenderbuffers(1, &_renderbuffer);
-        glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
-        glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
-        [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer*)self.layer];
-        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderbuffer);
-        
-        GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-        if (status != GL_FRAMEBUFFER_COMPLETE) {
-            
-            DLog(@"failed to make complete framebuffer object %x", status);
-            self = nil;
-            return nil;
-        }
-        
-        GLenum glError = glGetError();
-        if (GL_NO_ERROR != glError) {
-            
-            DLog(@"failed to setup GL %x", glError);
-            self = nil;
-            return nil;
-        }
-        
-        if (![self loadShaders]) {
-            
-            self = nil;
-            return nil;
-        }
-        
-        DLog(@"Open-GL setup finished");
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        NSLog(@"🌈%s", __PRETTY_FUNCTION__);
     }
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        NSLog(@"🌈%s", __PRETTY_FUNCTION__);
+        [self setupOpenGL];
+    }
+    return self;
+}
+
+- (id)init
+{
+    mat4f_LoadOrtho(-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f, modelviewProj);//shengming
+    if (self = [super init]) {
+        [self setupOpenGL];
+    }
+    return self;
+}
+
+- (void)setupOpenGL
+{
+    DLog(@"Setup Open-GL renderer: YUV ...");
+    _renderer = [[OpenGLRenderer_YUV alloc] init];
+    DLog(@"OK");
+    //        [self setFrame:[[UIScreen mainScreen] bounds]];
+    [self setFrame:CGRectMake(0, 0, 480, 300)];
+    
+    CAEAGLLayer *eaglLayer = (CAEAGLLayer*) self.layer;
+    eaglLayer.opaque = YES;
+    eaglLayer.drawableProperties = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [NSNumber numberWithBool:YES], kEAGLDrawablePropertyRetainedBacking,
+                                    kEAGLColorFormatRGBA8, kEAGLDrawablePropertyColorFormat,
+                                    nil];
+    
+    self.contentScaleFactor = [UIScreen mainScreen].scale;//渲染模糊修复
+    _viewScale = [UIScreen mainScreen].scale;//渲染模糊修复
+    _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    
+    if (!_context ||
+        ![EAGLContext setCurrentContext:_context]) {
+        DLog(@"failed to setup EAGLContext");
+        self = nil;
+        return;
+    }
+    
+    glGenFramebuffers(1, &_framebuffer);
+    glGenRenderbuffers(1, &_renderbuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
+    [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer*)self.layer];
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderbuffer);
+    
+    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (status != GL_FRAMEBUFFER_COMPLETE) {
+        
+        DLog(@"failed to make complete framebuffer object %x", status);
+        self = nil;
+        return;
+    }
+    
+    GLenum glError = glGetError();
+    if (GL_NO_ERROR != glError) {
+        
+        DLog(@"failed to setup GL %x", glError);
+        self = nil;
+        return;
+    }
+    
+    if (![self loadShaders]) {
+        
+        self = nil;
+        return;
+    }
+    
+    DLog(@"Open-GL setup finished");
+}
+
 - (void)dealloc
 {
+    //TODO:
+//    if(self.captureFinishScreen && _isGetVideoFrame){
+//        AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//        /*
+//         * isGoBack = YES表示应用进入后台，因为进入后台不能执行glToUIImage（OpenGL）
+//         * 所以，从监控画面按Home键或锁屏键回到后台时，不截图（头像图片）
+//         */
+//        if (!del.isGoBack) {
+//            UIImage *image = [[UIImage alloc] initWithCGImage:[self glToUIImage].CGImage];
+//            
+//            NSData *imgData = [NSData dataWithData:UIImagePNGRepresentation(image)];
+//            NSString* contactid = [[P2PClient sharedClient] callId];
+//            int dwApContactID = [[AppDelegate sharedDefault] dwApContactID];
+//            if (dwApContactID != 0)
+//            {
+//                contactid = [NSString stringWithFormat:@"%d", dwApContactID];
+//            }
+//            [Utils saveHeaderFileWithId:contactid data:imgData];
+//            
+//            if (dwApContactID != 0)
+//            {
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"update head image"
+//                                                                    object:nil
+//                                                                  userInfo:nil];                
+//            }
+//            [image release];
+//        }
+//    }
+    
     self.captureFinishScreen = NO;
     
     if (_renderer) {
@@ -403,33 +451,37 @@ static GLfloat modelviewProj[16];
 
 - (void)layoutSubviews
 {
-    /*
-     *1. isQuitMonitorInterface = YES表示避免退出监控时，因屏幕旋转(针对8.x，暂怀疑旋转所致)进入layoutSubviews
-     *2. 所以退出监控时，不再执行layoutSubviews，保证正常截图
-     *3. 不知道为什么改成现在的进入监控界面方式，会出现这样的问题
-     */
-    if (!self.isQuitMonitorInterface) {//rtsp监控界面弹出修改
-        DLog(@"Setup play framebuffer...");
-        glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
-        [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer*)self.layer];
-        
-        GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-        if (status != GL_FRAMEBUFFER_COMPLETE) {
+    @synchronized(self)
+    {
+        /*
+         *1. isQuitMonitorInterface = YES表示避免退出监控时，因屏幕旋转(针对8.x，暂怀疑旋转所致)进入layoutSubviews
+         *2. 所以退出监控时，不再执行layoutSubviews，保证正常截图
+         *3. 不知道为什么改成现在的进入监控界面方式，会出现这样的问题
+         */
+        if (!self.isQuitMonitorInterface) {//rtsp监控界面弹出修改
+            DLog(@"Setup play framebuffer...");
+            glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer);
+            [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer*)self.layer];
             
-            DLog(@"failed to make complete framebuffer object %x", status);
+            GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+            if (status != GL_FRAMEBUFFER_COMPLETE) {
+                
+                DLog(@"failed to make complete framebuffer object %x", status);
+                
+            }
             
-        }
-        
-        flPlayVideoWidth   = 16; ///shengming add  ,reset w h
-        flPlayVideoHeight  = 16;
-        flPlayVideoLineSize  = 16;
-        // [self updateVertices]; //shengming
-        if (!_Initialized)//渲染模糊修复
-        {
-            [self render:nil];
-            _Initialized = YES;
+            flPlayVideoWidth   = 16; ///shengming add  ,reset w h
+            flPlayVideoHeight  = 16;
+            flPlayVideoLineSize  = 16;
+            // [self updateVertices]; //shengming
+            if (!_Initialized)//渲染模糊修复
+            {
+                [self render:nil];
+                _Initialized = YES;
+            }
         }
     }
+    
 }
 
 - (void)setContentMode:(UIViewContentMode)contentMode
@@ -497,57 +549,60 @@ exit:
 
 - (void)render:(GAVFrame *)frame
 {
-    NSLog(@"render frame called");
-    [EAGLContext setCurrentContext:_context];
-    
-    glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);//shengming del
-    glViewport(0, 0, self.bounds.size.width*_viewScale, self.bounds.size.height*_viewScale);//渲染模糊修复
-    glUseProgram(_program);
-    
-    if (frame && frame->data[0]) {
-        [_renderer setFrame:frame];
-    } else {
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-        glUseProgram(_program);
-        return ;    }
-    if ([_renderer prepareRender])
+    @synchronized(self)
     {
-        GLfloat modelviewProj[16];//shengming del
-        mat4f_LoadOrtho(-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f, modelviewProj);//shengming del
+        [EAGLContext setCurrentContext:_context];
         
-        if((frame->height != flPlayVideoHeight || frame->linesize[0] != flPlayVideoLineSize || frame->width != flPlayVideoWidth  )
-           && frame->height != 0 && frame->width != 0 && flPlayVideoLineSize != 0
-           ) ///shengming
+        glBindFramebuffer(GL_FRAMEBUFFER, _framebuffer);//shengming del
+        glViewport(0, 0, self.bounds.size.width*_viewScale, self.bounds.size.height*_viewScale);//渲染模糊修复
+        glUseProgram(_program);
+        
+        if (frame && frame->data[0]) {
+            [_renderer setFrame:frame];
+        } else {
+            glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT);
+            glUseProgram(_program);
+            return ;    }
+        if ([_renderer prepareRender])
         {
+            GLfloat modelviewProj[16];//shengming del
+            mat4f_LoadOrtho(-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f, modelviewProj);//shengming del
             
-            flPlayVideoHeight = frame->height;
-            flPlayVideoLineSize = frame->linesize[0];
-            flPlayVideoWidth = frame->width ;
+            if((frame->height != flPlayVideoHeight || frame->linesize[0] != flPlayVideoLineSize || frame->width != flPlayVideoWidth  )
+               && frame->height != 0 && frame->width != 0 && flPlayVideoLineSize != 0
+               ) ///shengming
+            {
+                
+                flPlayVideoHeight = frame->height;
+                flPlayVideoLineSize = frame->linesize[0];
+                flPlayVideoWidth = frame->width ;
+                
+                glUniformMatrix4fv(_uniformMatrix, 1, GL_FALSE, modelviewProj);
+                glVertexAttribPointer(ATTRIBUTE_VERTEX, 2, GL_FLOAT, 0, 0, _vertices);
+                glEnableVertexAttribArray(ATTRIBUTE_VERTEX);
+                glVertexAttribPointer(ATTRIBUTE_TEXCOORD, 2, GL_FLOAT, 0, 0, texCoords);
+                glEnableVertexAttribArray(ATTRIBUTE_TEXCOORD);
+            }
             
-            glUniformMatrix4fv(_uniformMatrix, 1, GL_FALSE, modelviewProj);
-            glVertexAttribPointer(ATTRIBUTE_VERTEX, 2, GL_FLOAT, 0, 0, _vertices);
-            glEnableVertexAttribArray(ATTRIBUTE_VERTEX);
-            glVertexAttribPointer(ATTRIBUTE_TEXCOORD, 2, GL_FLOAT, 0, 0, texCoords);
-            glEnableVertexAttribArray(ATTRIBUTE_TEXCOORD);
+            glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+            
         }
         
-        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-        
-    }
-    
-    glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer); //shengming del
-    [_context presentRenderbuffer:GL_RENDERBUFFER];
-    if(self.isScreenShotting){
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onScreenShotted:)]) {
-            [self.delegate onScreenShotted:[self glToUIImage]];
+        glBindRenderbuffer(GL_RENDERBUFFER, _renderbuffer); //shengming del
+        [_context presentRenderbuffer:GL_RENDERBUFFER];
+        if(self.isScreenShotting){
+            if (self.delegate && [self.delegate respondsToSelector:@selector(onScreenShotted:)]) {
+                [self.delegate onScreenShotted:[self glToUIImage]];
+            }
         }
+        
+        
+        self.isScreenShotting = NO;
+        
+        _isGetVideoFrame = YES;//渲染模糊修复
     }
     
-    
-    self.isScreenShotting = NO;
-    
-    _isGetVideoFrame = YES;//渲染模糊修复
 }
 
 - (UIImage *)glToUIImage

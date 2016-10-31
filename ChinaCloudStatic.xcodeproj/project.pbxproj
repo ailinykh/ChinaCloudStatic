@@ -24,16 +24,24 @@
 		736377851DBE3BAA0027EE34 /* Contact.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924A8A1DB90AE800508979 /* Contact.h */; };
 		736377861DBE3D780027EE34 /* FListManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AA51DB90AE800508979 /* FListManager.h */; };
 		736377871DBE43810027EE34 /* ShakeManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AAB1DB90AE800508979 /* ShakeManager.h */; };
-		736377881DBE4E7D0027EE34 /* Utils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AAD1DB90AE800508979 /* Utils.h */; };
 		736377891DBE4F010027EE34 /* MD5Manager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AA71DB90AE800508979 /* MD5Manager.h */; };
 		736377ED1DBF615A00732280 /* TouchButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B2A1DB90AE800508979 /* TouchButton.h */; };
-		736377EE1DBF647100732280 /* OpenGLView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AD61DB90AE800508979 /* OpenGLView.h */; };
 		736377EF1DBF648A00732280 /* CustomBorderButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B261DB90AE800508979 /* CustomBorderButton.h */; };
 		736377F01DBF649C00732280 /* CustomView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B281DB90AE800508979 /* CustomView.h */; };
 		736377F11DBF64B400732280 /* YProgressView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B2C1DB90AE800508979 /* YProgressView.h */; };
 		737E7E511DBA04EE0040800F /* Rtsp_instance.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B221DB90AE800508979 /* Rtsp_instance.h */; };
 		737E7E521DBA04F50040800F /* RtspInterface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B231DB90AE800508979 /* RtspInterface.h */; };
 		737E7E531DBA05010040800F /* P2PCInterface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AD81DB90AE800508979 /* P2PCInterface.h */; };
+		73905CAE1DC728FE006CB811 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73905CAD1DC728FE006CB811 /* OpenGLView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73905CB01DC7293B006CB811 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73905CAF1DC7293B006CB811 /* OpenGLES.framework */; };
+		73905CB11DC72E79006CB811 /* OpenGLView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73905CAC1DC728FE006CB811 /* OpenGLView.h */; };
+		73905CB21DC72E9F006CB811 /* Constants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA7D1DC1FE4D00527A76 /* Constants.h */; };
+		73905CB31DC72F1B006CB811 /* P2PMonitorController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA741DC1FB6C00527A76 /* P2PMonitorController.h */; };
+		73905CB41DC72FFF006CB811 /* ProgressImageView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA771DC1FBB600527A76 /* ProgressImageView.h */; };
+		73905CB51DC73062006CB811 /* UDPManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924A9F1DB90AE800508979 /* UDPManager.h */; };
+		73905CB61DC73079006CB811 /* LocalDevice.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924A971DB90AE800508979 /* LocalDevice.h */; };
+		73905CB91DC73CBE006CB811 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 73905CB81DC73CBE006CB811 /* Utils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		73905CBC1DC7453F006CB811 /* Utils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73905CB71DC73CBE006CB811 /* Utils.h */; };
 		73924A791DB90A7D00508979 /* ChinaCloudStatic.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924A781DB90A7D00508979 /* ChinaCloudStatic.m */; };
 		73924B331DB90AE800508979 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924A861DB90AE800508979 /* Alarm.m */; };
 		73924B341DB90AE800508979 /* AlarmDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924A881DB90AE800508979 /* AlarmDAO.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -52,7 +60,6 @@
 		73924B411DB90AE800508979 /* FListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AA61DB90AE800508979 /* FListManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73924B421DB90AE800508979 /* MD5Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AA81DB90AE800508979 /* MD5Manager.m */; };
 		73924B441DB90AE800508979 /* ShakeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AAC1DB90AE800508979 /* ShakeManager.m */; };
-		73924B451DB90AE800508979 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AAE1DB90AE800508979 /* Utils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73924B461DB90AE800508979 /* libPwdEncrypt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73924AB11DB90AE800508979 /* libPwdEncrypt.a */; };
 		73924B471DB90AE800508979 /* MPNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AB51DB90AE800508979 /* MPNotificationView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73924B481DB90AE800508979 /* OBGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AB81DB90AE800508979 /* OBGradientView.m */; };
@@ -68,7 +75,6 @@
 		73924B521DB90AE800508979 /* RegisterResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924ACE1DB90AE800508979 /* RegisterResult.m */; };
 		73924B531DB90AE800508979 /* CameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AD11DB90AE800508979 /* CameraManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73924B541DB90AE800508979 /* des2.c in Sources */ = {isa = PBXBuildFile; fileRef = 73924AD31DB90AE800508979 /* des2.c */; };
-		73924B551DB90AE800508979 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AD71DB90AE800508979 /* OpenGLView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73924B561DB90AE800508979 /* P2PClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924ADA1DB90AE800508979 /* P2PClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73924B581DB90AE800508979 /* FfmpegInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924B211DB90AE800508979 /* FfmpegInterface.m */; };
 		73924B591DB90AE800508979 /* RtspInterface.mm in Sources */ = {isa = PBXBuildFile; fileRef = 73924B241DB90AE800508979 /* RtspInterface.mm */; };
@@ -103,13 +109,18 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				73905CBC1DC7453F006CB811 /* Utils.h in CopyFiles */,
+				73905CB61DC73079006CB811 /* LocalDevice.h in CopyFiles */,
+				73905CB51DC73062006CB811 /* UDPManager.h in CopyFiles */,
+				73905CB41DC72FFF006CB811 /* ProgressImageView.h in CopyFiles */,
+				73905CB31DC72F1B006CB811 /* P2PMonitorController.h in CopyFiles */,
+				73905CB21DC72E9F006CB811 /* Constants.h in CopyFiles */,
+				73905CB11DC72E79006CB811 /* OpenGLView.h in CopyFiles */,
 				736377F11DBF64B400732280 /* YProgressView.h in CopyFiles */,
 				736377F01DBF649C00732280 /* CustomView.h in CopyFiles */,
 				736377EF1DBF648A00732280 /* CustomBorderButton.h in CopyFiles */,
-				736377EE1DBF647100732280 /* OpenGLView.h in CopyFiles */,
 				736377ED1DBF615A00732280 /* TouchButton.h in CopyFiles */,
 				736377891DBE4F010027EE34 /* MD5Manager.h in CopyFiles */,
-				736377881DBE4E7D0027EE34 /* Utils.h in CopyFiles */,
 				736377871DBE43810027EE34 /* ShakeManager.h in CopyFiles */,
 				736377861DBE3D780027EE34 /* FListManager.h in CopyFiles */,
 				736377851DBE3BAA0027EE34 /* Contact.h in CopyFiles */,
@@ -129,6 +140,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		73905CAC1DC728FE006CB811 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		73905CAD1DC728FE006CB811 /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
+		73905CAF1DC7293B006CB811 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		73905CB71DC73CBE006CB811 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		73905CB81DC73CBE006CB811 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		73924A741DB90A7D00508979 /* libChinaCloudStatic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libChinaCloudStatic.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		73924A771DB90A7D00508979 /* ChinaCloudStatic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChinaCloudStatic.h; sourceTree = "<group>"; };
 		73924A781DB90A7D00508979 /* ChinaCloudStatic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChinaCloudStatic.m; sourceTree = "<group>"; };
@@ -166,8 +182,6 @@
 		73924AA81DB90AE800508979 /* MD5Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Manager.m; sourceTree = "<group>"; };
 		73924AAB1DB90AE800508979 /* ShakeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeManager.h; sourceTree = "<group>"; };
 		73924AAC1DB90AE800508979 /* ShakeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeManager.m; sourceTree = "<group>"; };
-		73924AAD1DB90AE800508979 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
-		73924AAE1DB90AE800508979 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		73924AB11DB90AE800508979 /* libPwdEncrypt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPwdEncrypt.a; sourceTree = "<group>"; };
 		73924AB21DB90AE800508979 /* libPwdEncrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libPwdEncrypt.h; sourceTree = "<group>"; };
 		73924AB41DB90AE800508979 /* MPNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNotificationView.h; sourceTree = "<group>"; };
@@ -200,8 +214,6 @@
 		73924AD31DB90AE800508979 /* des2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = des2.c; sourceTree = "<group>"; };
 		73924AD41DB90AE800508979 /* des2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des2.h; sourceTree = "<group>"; };
 		73924AD51DB90AE800508979 /* mesg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesg.h; sourceTree = "<group>"; };
-		73924AD61DB90AE800508979 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
-		73924AD71DB90AE800508979 /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
 		73924AD81DB90AE800508979 /* P2PCInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P2PCInterface.h; sourceTree = "<group>"; };
 		73924AD91DB90AE800508979 /* P2PClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P2PClient.h; sourceTree = "<group>"; };
 		73924ADA1DB90AE800508979 /* P2PClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P2PClient.m; sourceTree = "<group>"; };
@@ -307,6 +319,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73905CB01DC7293B006CB811 /* OpenGLES.framework in Frameworks */,
 				73FBAA711DC1F7D700527A76 /* libAVCtrl_armv7.a in Frameworks */,
 				73FBAA701DC1F7D700527A76 /* libAVCtrl_arm64.a in Frameworks */,
 				73924B461DB90AE800508979 /* libPwdEncrypt.a in Frameworks */,
@@ -433,8 +446,8 @@
 				73924AA81DB90AE800508979 /* MD5Manager.m */,
 				73924AAB1DB90AE800508979 /* ShakeManager.h */,
 				73924AAC1DB90AE800508979 /* ShakeManager.m */,
-				73924AAD1DB90AE800508979 /* Utils.h */,
-				73924AAE1DB90AE800508979 /* Utils.m */,
+				73905CB71DC73CBE006CB811 /* Utils.h */,
+				73905CB81DC73CBE006CB811 /* Utils.m */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -520,13 +533,13 @@
 				73924AD31DB90AE800508979 /* des2.c */,
 				73924AD41DB90AE800508979 /* des2.h */,
 				73924AD51DB90AE800508979 /* mesg.h */,
-				73924AD61DB90AE800508979 /* OpenGLView.h */,
-				73924AD71DB90AE800508979 /* OpenGLView.m */,
 				73924AD81DB90AE800508979 /* P2PCInterface.h */,
 				73924AD91DB90AE800508979 /* P2PClient.h */,
 				73924ADA1DB90AE800508979 /* P2PClient.m */,
 				73FBAA7E1DC1FEF900527A76 /* PAIOUnit.h */,
 				73FBAA7F1DC1FEF900527A76 /* PAIOUnit.m */,
+				73905CAC1DC728FE006CB811 /* OpenGLView.h */,
+				73905CAD1DC728FE006CB811 /* OpenGLView.m */,
 			);
 			path = P2PCore;
 			sourceTree = "<group>";
@@ -576,6 +589,7 @@
 		73924B681DB90FFD00508979 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				73905CAF1DC7293B006CB811 /* OpenGLES.framework */,
 				73924BEF1DB91CA400508979 /* libsqlite3.0.tbd */,
 				73924BED1DB91C9A00508979 /* libbz2.1.0.tbd */,
 				73924BEB1DB91C9300508979 /* libz.tbd */,
@@ -775,7 +789,6 @@
 				73924B4C1DB90AE800508979 /* CheckNewMessageResult.m in Sources */,
 				73924A791DB90A7D00508979 /* ChinaCloudStatic.m in Sources */,
 				73924B351DB90AE800508979 /* Contact.m in Sources */,
-				73924B551DB90AE800508979 /* OpenGLView.m in Sources */,
 				73924B3B1DB90AE800508979 /* LocalDevice.m in Sources */,
 				73924B521DB90AE800508979 /* RegisterResult.m in Sources */,
 				73924B591DB90AE800508979 /* RtspInterface.mm in Sources */,
@@ -789,10 +802,11 @@
 				73924B561DB90AE800508979 /* P2PClient.m in Sources */,
 				73924B5A1DB90AE800508979 /* CustomBorderButton.m in Sources */,
 				73924B361DB90AE800508979 /* ContactDAO.m in Sources */,
+				73905CB91DC73CBE006CB811 /* Utils.m in Sources */,
 				73924B381DB90AE800508979 /* FMDatabasePool.m in Sources */,
 				73924B3E1DB90AE800508979 /* UDManager.m in Sources */,
+				73905CAE1DC728FE006CB811 /* OpenGLView.m in Sources */,
 				73924B5D1DB90AE800508979 /* YProgressView.m in Sources */,
-				73924B451DB90AE800508979 /* Utils.m in Sources */,
 				73924B411DB90AE800508979 /* FListManager.m in Sources */,
 				73924B3F1DB90AE800508979 /* UDPManager.m in Sources */,
 				73924B3C1DB90AE800508979 /* RecommendInfo.m in Sources */,

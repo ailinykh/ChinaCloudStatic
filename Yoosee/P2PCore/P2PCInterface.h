@@ -21,7 +21,7 @@
 #define  KBOOL            unsigned int               //32bits
 #define  UINT64        unsigned long long      //64bits
 
-
+#include <stdint.h>
 
 
 enum{

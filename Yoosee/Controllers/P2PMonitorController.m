@@ -500,7 +500,7 @@
     }
 }
 
-#pragma mark - 监控断开设备回调(代理)
+#pragma mark - Monitoring Disconnect Device Callback (Proxy)
 -(void)mainControllerMonitorReject:(NSDictionary*)info{
     if(!self.isReject){
         self.isReject = !self.isReject;
@@ -519,7 +519,7 @@
     }
 }
 
-#pragma mark - 隐藏监控连接中的UI
+#pragma mark - Hides the UI in the monitor connection
 -(void)hiddenMonitoringUI:(BOOL)isHidden callErrorInfo:(NSDictionary*)info isReCall:(BOOL)isReCall{
     if (isHidden) {
         [self.yProgressView stop];

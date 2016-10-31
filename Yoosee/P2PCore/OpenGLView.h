@@ -5,9 +5,11 @@
 //  Created by Kiwaro Nigas on 12-12-4.
 //  Copyright (c) 2012年 xizue.com. All rights reserved.
 //
+
+#import "P2PCInterface.h"
 #import <UIKit/UIKit.h>
 #import <OpenGLES/gltypes.h>
-#import "P2PCInterface.h"
+#import <OpenGLES/EAGL.h>
 #define g_w 352
 #define g_h 240
 

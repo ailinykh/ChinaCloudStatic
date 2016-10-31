@@ -24,10 +24,10 @@ enum
 +(UILabel*)getTopBarTitleView;
 +(long)getCurrentTimeInterval;
 +(NSString*)convertTimeByInterval:(NSString*)timeInterval;
-+(NSArray*)getScreenshotFilesWithId:(NSString*)contactId;
++(NSArray*)getScreenshotFiles;
 
-+(void)saveScreenshotFileWithId:(NSString*)contactId data:(NSData*)data;
-+(NSString*)getScreenshotFilePathWithName:(NSString*)fileName contactId:(NSString*)contactId;
++(void)saveScreenshotFile:(NSData*)data;
++(NSString*)getScreenshotFilePathWithName:(NSString*)fileName;
 
 +(void)saveHeaderFileWithId:(NSString*)contactId data:(NSData*)data;
 +(NSString*)getHeaderFilePathWithId:(NSString*)contactId;
@@ -60,7 +60,7 @@ enum
 +(NSMutableArray*)getAddedUnsetPasswordDevicesFromLan:(NSArray*)lanDevicesArray;
 
 +(int)pwdStrengthWithPwd:(NSString *)sPassword;
-+(BOOL)IsNeedEncrypt:(NSString *)sPassword;
++(NSString*)GetTreatedPassword:(NSString*)sPassword;
 @end
 
 @interface NSString(Utils)

@@ -16,6 +16,8 @@
 #import <CommonCrypto/CommonCrypto.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <SystemConfiguration/CaptiveNetwork.h>
+#import "MD5Manager.h"
+//#import "AppDelegate.h"
 
 @implementation Utils
 +(UILabel*)getTopBarTitleView{
@@ -193,9 +195,14 @@
     return time;
 }
 
-+(NSArray*)getScreenshotFilesWithId:(NSString*)contactId{
++(NSArray*)getScreenshotFiles{
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *savePath = [NSString stringWithFormat:@"%@/screenshot/%@",rootPath,contactId];
+
+    NSString *savePath = nil;
+    
+    LoginResult *loginResult = [UDManager getLoginInfo];
+    savePath = [NSString stringWithFormat:@"%@/screenshot/%@",rootPath,loginResult.contactId];
+    
     NSFileManager *manager = [NSFileManager defaultManager];
     NSArray *files = [manager subpathsAtPath:savePath];
     NSMutableArray *imgFiles = [NSMutableArray arrayWithCapacity:0];
@@ -207,40 +214,52 @@
     return imgFiles;
 }
 
-+(void)saveScreenshotFileWithId:(NSString*)contactId data:(NSData*)data{
++(void)saveScreenshotFile:(NSData*)data{
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
+    NSString *savePath = nil;
     
-    long timeInterval = [Utils getCurrentTimeInterval];
-    NSString *savePath = [NSString stringWithFormat:@"%@/screenshot/%@",rootPath,contactId];
+    LoginResult *loginResult = [UDManager getLoginInfo];
+    savePath = [NSString stringWithFormat:@"%@/screenshot/%@",rootPath,loginResult.contactId];
     
     NSFileManager *manager = [NSFileManager defaultManager];
     if(![manager fileExistsAtPath:savePath]){
         [manager createDirectoryAtPath:savePath withIntermediateDirectories:YES attributes:nil error:nil];
     }
+    long timeInterval = [Utils getCurrentTimeInterval];
     [data writeToFile:[NSString stringWithFormat:@"%@/%ld.png",savePath,timeInterval] atomically:YES];
 }
 
-+(NSString*)getScreenshotFilePathWithName:(NSString *)fileName contactId:(NSString*)contactId{
++(NSString*)getScreenshotFilePathWithName:(NSString *)fileName{
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *filePath = [NSString stringWithFormat:@"%@/screenshot/%@/%@",rootPath,contactId,fileName];
+    
+    NSString *filePath = nil;
+    
+    LoginResult *loginResult = [UDManager getLoginInfo];
+    filePath = [NSString stringWithFormat:@"%@/screenshot/%@/%@",rootPath,loginResult.contactId,fileName];
+    
     return filePath;
 }
 
 +(NSString*)getHeaderFilePathWithId:(NSString *)contactId{
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *filePath = nil;
+    
     LoginResult *loginResult = [UDManager getLoginInfo];
-    NSString *filePath = [NSString stringWithFormat:@"%@/screenshot/tempHead/%@/%@.png",rootPath,loginResult.contactId,contactId];
+    filePath = [NSString stringWithFormat:@"%@/screenshot/tempHead/%@/%@.png",rootPath,loginResult.contactId,contactId];
+    
     return filePath;
 }
 
 +(void)saveHeaderFileWithId:(NSString*)contactId data:(NSData*)data{
-    LoginResult *loginResult = [UDManager getLoginInfo];
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
     
     //long timeInterval = [Utils getCurrentTimeInterval];
-    NSString *savePath = [NSString stringWithFormat:@"%@/screenshot/tempHead/%@",rootPath,loginResult.contactId];
+    NSString *savePath = nil;
+    
+    LoginResult *loginResult = [UDManager getLoginInfo];
+    savePath = [NSString stringWithFormat:@"%@/screenshot/tempHead/%@",rootPath,loginResult.contactId];
     
     NSFileManager *manager = [NSFileManager defaultManager];
     if(![manager fileExistsAtPath:savePath]){
@@ -463,6 +482,19 @@
     }
     
     return NO;
+}
+
++(NSString*)GetTreatedPassword:(NSString*)sPassword
+{
+    BOOL isNeedEncrypt = [Utils IsNeedEncrypt:sPassword];
+    if (isNeedEncrypt) {
+        unsigned int ret = [MD5Manager GetTreatedPassword:[sPassword UTF8String]];
+        sPassword = [NSString stringWithFormat:@"0%d", ret];
+    }
+    if (sPassword.intValue == 0) {
+        sPassword = @"294136";
+    }
+    return sPassword;
 }
 
 @end
