@@ -12,6 +12,8 @@
 #define  DWORD        unsigned int
 #define  BYTE         unsigned char
 
+#define kCCSnapshotImageDidUpdated @"ChinaCloudSnapshotImageDidUpdated"
+
 enum
 {
     password_weak,

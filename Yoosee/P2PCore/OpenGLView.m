@@ -368,33 +368,22 @@ static GLfloat modelviewProj[16];
 - (void)dealloc
 {
     //TODO:
-//    if(self.captureFinishScreen && _isGetVideoFrame){
-//        AppDelegate *del = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//        /*
-//         * isGoBack = YES表示应用进入后台，因为进入后台不能执行glToUIImage（OpenGL）
-//         * 所以，从监控画面按Home键或锁屏键回到后台时，不截图（头像图片）
-//         */
-//        if (!del.isGoBack) {
-//            UIImage *image = [[UIImage alloc] initWithCGImage:[self glToUIImage].CGImage];
-//            
-//            NSData *imgData = [NSData dataWithData:UIImagePNGRepresentation(image)];
-//            NSString* contactid = [[P2PClient sharedClient] callId];
-//            int dwApContactID = [[AppDelegate sharedDefault] dwApContactID];
-//            if (dwApContactID != 0)
-//            {
-//                contactid = [NSString stringWithFormat:@"%d", dwApContactID];
-//            }
-//            [Utils saveHeaderFileWithId:contactid data:imgData];
-//            
-//            if (dwApContactID != 0)
-//            {
-//                [[NSNotificationCenter defaultCenter] postNotificationName:@"update head image"
-//                                                                    object:nil
-//                                                                  userInfo:nil];                
-//            }
-//            [image release];
-//        }
-//    }
+    if (self.captureFinishScreen && _isGetVideoFrame) {
+        /*
+         * Ios GoBack = YES means that the application into the background, because the background can not execute glToUIImage (OpenGL)
+         * Therefore, from the monitor screen by Home button or lock screen key back to the background, not screenshots (avatar picture)
+         */
+        UIImage *image = [[UIImage alloc] initWithCGImage:[self glToUIImage].CGImage];
+        
+        NSData *imgData = [NSData dataWithData:UIImagePNGRepresentation(image)];
+        NSString* contactid = [[P2PClient sharedClient] callId];
+        [Utils saveHeaderFileWithId:contactid data:imgData];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kCCSnapshotImageDidUpdated
+                                                            object:contactid
+                                                          userInfo:nil];
+        [image release];
+    }
     
     self.captureFinishScreen = NO;
     
