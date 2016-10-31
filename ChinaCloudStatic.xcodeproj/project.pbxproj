@@ -42,6 +42,7 @@
 		73905CB61DC73079006CB811 /* LocalDevice.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924A971DB90AE800508979 /* LocalDevice.h */; };
 		73905CB91DC73CBE006CB811 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 73905CB81DC73CBE006CB811 /* Utils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73905CBC1DC7453F006CB811 /* Utils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73905CB71DC73CBE006CB811 /* Utils.h */; };
+		73905CBD1DC751F4006CB811 /* PAIOUnit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FBAA7E1DC1FEF900527A76 /* PAIOUnit.h */; };
 		73924A791DB90A7D00508979 /* ChinaCloudStatic.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924A781DB90A7D00508979 /* ChinaCloudStatic.m */; };
 		73924B331DB90AE800508979 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924A861DB90AE800508979 /* Alarm.m */; };
 		73924B341DB90AE800508979 /* AlarmDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924A881DB90AE800508979 /* AlarmDAO.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -109,6 +110,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				73905CBD1DC751F4006CB811 /* PAIOUnit.h in CopyFiles */,
 				73905CBC1DC7453F006CB811 /* Utils.h in CopyFiles */,
 				73905CB61DC73079006CB811 /* LocalDevice.h in CopyFiles */,
 				73905CB51DC73062006CB811 /* UDPManager.h in CopyFiles */,
