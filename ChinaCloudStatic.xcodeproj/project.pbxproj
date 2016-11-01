@@ -31,7 +31,6 @@
 		736377F11DBF64B400732280 /* YProgressView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B2C1DB90AE800508979 /* YProgressView.h */; };
 		737E7E511DBA04EE0040800F /* Rtsp_instance.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B221DB90AE800508979 /* Rtsp_instance.h */; };
 		737E7E521DBA04F50040800F /* RtspInterface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B231DB90AE800508979 /* RtspInterface.h */; };
-		737E7E531DBA05010040800F /* P2PCInterface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AD81DB90AE800508979 /* P2PCInterface.h */; };
 		73905CAE1DC728FE006CB811 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73905CAD1DC728FE006CB811 /* OpenGLView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73905CB01DC7293B006CB811 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73905CAF1DC7293B006CB811 /* OpenGLES.framework */; };
 		73905CB11DC72E79006CB811 /* OpenGLView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73905CAC1DC728FE006CB811 /* OpenGLView.h */; };
@@ -85,6 +84,10 @@
 		73924B5D1DB90AE800508979 /* YProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924B2D1DB90AE800508979 /* YProgressView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73924B5E1DB90AE800508979 /* empty.mm in Sources */ = {isa = PBXBuildFile; fileRef = 73924B301DB90AE800508979 /* empty.mm */; };
 		73924B721DB9101A00508979 /* libRTSP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73924B6D1DB9101A00508979 /* libRTSP.a */; };
+		73B805551DC89F46005AB68E /* libAVCtrl_i386.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B805521DC89F46005AB68E /* libAVCtrl_i386.a */; };
+		73B805561DC89F46005AB68E /* libAVCtrl_armv7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B805531DC89F46005AB68E /* libAVCtrl_armv7.a */; };
+		73B805571DC89F46005AB68E /* libAVCtrl_arm64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B805541DC89F46005AB68E /* libAVCtrl_arm64.a */; };
+		73B805591DC8A0ED005AB68E /* P2PCInterface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73B805581DC89F79005AB68E /* P2PCInterface.h */; };
 		73E63D811DBA178B0015E102 /* elian.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FB2D381DBA0A20008B5232 /* elian.h */; };
 		73E63D8C1DBA1AB50015E102 /* GCDAsyncUdpSocket.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AA21DB90AE800508979 /* GCDAsyncUdpSocket.h */; };
 		73FB2D231DBA0761008B5232 /* UDManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924A9D1DB90AE800508979 /* UDManager.h */; };
@@ -93,10 +96,7 @@
 		73FB2D271DBA0784008B5232 /* NetManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924ACB1DB90AE800508979 /* NetManager.h */; };
 		73FB2D281DBA07B4008B5232 /* P2PClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AD91DB90AE800508979 /* P2PClient.h */; };
 		73FB2D3A1DBA0A26008B5232 /* libelian.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73FB2D391DBA0A26008B5232 /* libelian.a */; };
-		73FBAA701DC1F7D700527A76 /* libAVCtrl_arm64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73FBAA6C1DC1F7D700527A76 /* libAVCtrl_arm64.a */; };
-		73FBAA711DC1F7D700527A76 /* libAVCtrl_armv7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73FBAA6D1DC1F7D700527A76 /* libAVCtrl_armv7.a */; };
 		73FBAA721DC1F7D700527A76 /* libAVCtrl_armv7s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73FBAA6E1DC1F7D700527A76 /* libAVCtrl_armv7s.a */; };
-		73FBAA731DC1F7D700527A76 /* libAVCtrl_i386.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73FBAA6F1DC1F7D700527A76 /* libAVCtrl_i386.a */; };
 		73FBAA761DC1FB6C00527A76 /* P2PMonitorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FBAA751DC1FB6C00527A76 /* P2PMonitorController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73FBAA791DC1FBB600527A76 /* ProgressImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FBAA781DC1FBB600527A76 /* ProgressImageView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73FBAA7C1DC1FD6000527A76 /* CustomTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FBAA7B1DC1FD6000527A76 /* CustomTopBar.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -110,6 +110,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				73B805591DC8A0ED005AB68E /* P2PCInterface.h in CopyFiles */,
 				73905CBD1DC751F4006CB811 /* PAIOUnit.h in CopyFiles */,
 				73905CBC1DC7453F006CB811 /* Utils.h in CopyFiles */,
 				73905CB61DC73079006CB811 /* LocalDevice.h in CopyFiles */,
@@ -133,7 +134,6 @@
 				73FB2D261DBA077C008B5232 /* LoginResult.h in CopyFiles */,
 				73FB2D251DBA0774008B5232 /* AccountResult.h in CopyFiles */,
 				73FB2D231DBA0761008B5232 /* UDManager.h in CopyFiles */,
-				737E7E531DBA05010040800F /* P2PCInterface.h in CopyFiles */,
 				737E7E521DBA04F50040800F /* RtspInterface.h in CopyFiles */,
 				737E7E511DBA04EE0040800F /* Rtsp_instance.h in CopyFiles */,
 			);
@@ -216,7 +216,6 @@
 		73924AD31DB90AE800508979 /* des2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = des2.c; sourceTree = "<group>"; };
 		73924AD41DB90AE800508979 /* des2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des2.h; sourceTree = "<group>"; };
 		73924AD51DB90AE800508979 /* mesg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mesg.h; sourceTree = "<group>"; };
-		73924AD81DB90AE800508979 /* P2PCInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P2PCInterface.h; sourceTree = "<group>"; };
 		73924AD91DB90AE800508979 /* P2PClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P2PClient.h; sourceTree = "<group>"; };
 		73924ADA1DB90AE800508979 /* P2PClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P2PClient.m; sourceTree = "<group>"; };
 		73924B201DB90AE800508979 /* FfmpegInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FfmpegInterface.h; sourceTree = "<group>"; };
@@ -238,12 +237,13 @@
 		73924BEB1DB91C9300508979 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		73924BED1DB91C9A00508979 /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
 		73924BEF1DB91CA400508979 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		73B805521DC89F46005AB68E /* libAVCtrl_i386.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVCtrl_i386.a; sourceTree = "<group>"; };
+		73B805531DC89F46005AB68E /* libAVCtrl_armv7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVCtrl_armv7.a; sourceTree = "<group>"; };
+		73B805541DC89F46005AB68E /* libAVCtrl_arm64.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVCtrl_arm64.a; sourceTree = "<group>"; };
+		73B805581DC89F79005AB68E /* P2PCInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P2PCInterface.h; sourceTree = "<group>"; };
 		73FB2D381DBA0A20008B5232 /* elian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = elian.h; sourceTree = "<group>"; };
 		73FB2D391DBA0A26008B5232 /* libelian.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libelian.a; sourceTree = "<group>"; };
-		73FBAA6C1DC1F7D700527A76 /* libAVCtrl_arm64.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVCtrl_arm64.a; sourceTree = "<group>"; };
-		73FBAA6D1DC1F7D700527A76 /* libAVCtrl_armv7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVCtrl_armv7.a; sourceTree = "<group>"; };
 		73FBAA6E1DC1F7D700527A76 /* libAVCtrl_armv7s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVCtrl_armv7s.a; sourceTree = "<group>"; };
-		73FBAA6F1DC1F7D700527A76 /* libAVCtrl_i386.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVCtrl_i386.a; sourceTree = "<group>"; };
 		73FBAA741DC1FB6C00527A76 /* P2PMonitorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = P2PMonitorController.h; sourceTree = "<group>"; };
 		73FBAA751DC1FB6C00527A76 /* P2PMonitorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = P2PMonitorController.m; sourceTree = "<group>"; };
 		73FBAA771DC1FBB600527A76 /* ProgressImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressImageView.h; sourceTree = "<group>"; };
@@ -322,10 +322,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				73905CB01DC7293B006CB811 /* OpenGLES.framework in Frameworks */,
-				73FBAA711DC1F7D700527A76 /* libAVCtrl_armv7.a in Frameworks */,
-				73FBAA701DC1F7D700527A76 /* libAVCtrl_arm64.a in Frameworks */,
+				73B805551DC89F46005AB68E /* libAVCtrl_i386.a in Frameworks */,
 				73924B461DB90AE800508979 /* libPwdEncrypt.a in Frameworks */,
-				73FBAA731DC1F7D700527A76 /* libAVCtrl_i386.a in Frameworks */,
+				73B805561DC89F46005AB68E /* libAVCtrl_armv7.a in Frameworks */,
+				73B805571DC89F46005AB68E /* libAVCtrl_arm64.a in Frameworks */,
 				73FB2D3A1DBA0A26008B5232 /* libelian.a in Frameworks */,
 				73924B721DB9101A00508979 /* libRTSP.a in Frameworks */,
 				73FBAA721DC1F7D700527A76 /* libAVCtrl_armv7s.a in Frameworks */,
@@ -535,7 +535,7 @@
 				73924AD31DB90AE800508979 /* des2.c */,
 				73924AD41DB90AE800508979 /* des2.h */,
 				73924AD51DB90AE800508979 /* mesg.h */,
-				73924AD81DB90AE800508979 /* P2PCInterface.h */,
+				73B805581DC89F79005AB68E /* P2PCInterface.h */,
 				73924AD91DB90AE800508979 /* P2PClient.h */,
 				73924ADA1DB90AE800508979 /* P2PClient.m */,
 				73FBAA7E1DC1FEF900527A76 /* PAIOUnit.h */,
@@ -597,10 +597,10 @@
 				73924BEB1DB91C9300508979 /* libz.tbd */,
 				73924BE91DB91C8900508979 /* libiconv.tbd */,
 				73924B6D1DB9101A00508979 /* libRTSP.a */,
-				73FBAA6C1DC1F7D700527A76 /* libAVCtrl_arm64.a */,
-				73FBAA6D1DC1F7D700527A76 /* libAVCtrl_armv7.a */,
 				73FBAA6E1DC1F7D700527A76 /* libAVCtrl_armv7s.a */,
-				73FBAA6F1DC1F7D700527A76 /* libAVCtrl_i386.a */,
+				73B805521DC89F46005AB68E /* libAVCtrl_i386.a */,
+				73B805531DC89F46005AB68E /* libAVCtrl_armv7.a */,
+				73B805541DC89F46005AB68E /* libAVCtrl_arm64.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
