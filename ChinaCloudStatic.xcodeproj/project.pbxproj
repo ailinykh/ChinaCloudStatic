@@ -24,7 +24,6 @@
 		736377851DBE3BAA0027EE34 /* Contact.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924A8A1DB90AE800508979 /* Contact.h */; };
 		736377861DBE3D780027EE34 /* FListManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AA51DB90AE800508979 /* FListManager.h */; };
 		736377871DBE43810027EE34 /* ShakeManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AAB1DB90AE800508979 /* ShakeManager.h */; };
-		736377891DBE4F010027EE34 /* MD5Manager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AA71DB90AE800508979 /* MD5Manager.h */; };
 		736377ED1DBF615A00732280 /* TouchButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B2A1DB90AE800508979 /* TouchButton.h */; };
 		736377EF1DBF648A00732280 /* CustomBorderButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B261DB90AE800508979 /* CustomBorderButton.h */; };
 		736377F01DBF649C00732280 /* CustomView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B281DB90AE800508979 /* CustomView.h */; };
@@ -58,7 +57,6 @@
 		73924B3F1DB90AE800508979 /* UDPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AA01DB90AE800508979 /* UDPManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73924B401DB90AE800508979 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AA31DB90AE800508979 /* GCDAsyncUdpSocket.m */; };
 		73924B411DB90AE800508979 /* FListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AA61DB90AE800508979 /* FListManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73924B421DB90AE800508979 /* MD5Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AA81DB90AE800508979 /* MD5Manager.m */; };
 		73924B441DB90AE800508979 /* ShakeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AAC1DB90AE800508979 /* ShakeManager.m */; };
 		73924B461DB90AE800508979 /* libPwdEncrypt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73924AB11DB90AE800508979 /* libPwdEncrypt.a */; };
 		73924B471DB90AE800508979 /* MPNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924AB51DB90AE800508979 /* MPNotificationView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -90,6 +88,8 @@
 		73B805591DC8A0ED005AB68E /* P2PCInterface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73B805581DC89F79005AB68E /* P2PCInterface.h */; };
 		73E63D811DBA178B0015E102 /* elian.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FB2D381DBA0A20008B5232 /* elian.h */; };
 		73E63D8C1DBA1AB50015E102 /* GCDAsyncUdpSocket.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AA21DB90AE800508979 /* GCDAsyncUdpSocket.h */; };
+		73F3B8B81DCB8C3600830CD4 /* libMD5Manager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F3B8B71DCB8C3600830CD4 /* libMD5Manager.a */; };
+		73F3B8BA1DCB8C8500830CD4 /* MD5Manager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73F3B8B91DCB8C7400830CD4 /* MD5Manager.h */; };
 		73FB2D231DBA0761008B5232 /* UDManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924A9D1DB90AE800508979 /* UDManager.h */; };
 		73FB2D251DBA0774008B5232 /* AccountResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924ABD1DB90AE800508979 /* AccountResult.h */; };
 		73FB2D261DBA077C008B5232 /* LoginResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AC71DB90AE800508979 /* LoginResult.h */; };
@@ -110,6 +110,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				73F3B8BA1DCB8C8500830CD4 /* MD5Manager.h in CopyFiles */,
 				73B805591DC8A0ED005AB68E /* P2PCInterface.h in CopyFiles */,
 				73905CBD1DC751F4006CB811 /* PAIOUnit.h in CopyFiles */,
 				73905CBC1DC7453F006CB811 /* Utils.h in CopyFiles */,
@@ -123,7 +124,6 @@
 				736377F01DBF649C00732280 /* CustomView.h in CopyFiles */,
 				736377EF1DBF648A00732280 /* CustomBorderButton.h in CopyFiles */,
 				736377ED1DBF615A00732280 /* TouchButton.h in CopyFiles */,
-				736377891DBE4F010027EE34 /* MD5Manager.h in CopyFiles */,
 				736377871DBE43810027EE34 /* ShakeManager.h in CopyFiles */,
 				736377861DBE3D780027EE34 /* FListManager.h in CopyFiles */,
 				736377851DBE3BAA0027EE34 /* Contact.h in CopyFiles */,
@@ -180,8 +180,6 @@
 		73924AA31DB90AE800508979 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		73924AA51DB90AE800508979 /* FListManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FListManager.h; sourceTree = "<group>"; };
 		73924AA61DB90AE800508979 /* FListManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FListManager.m; sourceTree = "<group>"; };
-		73924AA71DB90AE800508979 /* MD5Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Manager.h; sourceTree = "<group>"; };
-		73924AA81DB90AE800508979 /* MD5Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Manager.m; sourceTree = "<group>"; };
 		73924AAB1DB90AE800508979 /* ShakeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeManager.h; sourceTree = "<group>"; };
 		73924AAC1DB90AE800508979 /* ShakeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeManager.m; sourceTree = "<group>"; };
 		73924AB11DB90AE800508979 /* libPwdEncrypt.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPwdEncrypt.a; sourceTree = "<group>"; };
@@ -241,6 +239,8 @@
 		73B805531DC89F46005AB68E /* libAVCtrl_armv7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVCtrl_armv7.a; sourceTree = "<group>"; };
 		73B805541DC89F46005AB68E /* libAVCtrl_arm64.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVCtrl_arm64.a; sourceTree = "<group>"; };
 		73B805581DC89F79005AB68E /* P2PCInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P2PCInterface.h; sourceTree = "<group>"; };
+		73F3B8B71DCB8C3600830CD4 /* libMD5Manager.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMD5Manager.a; sourceTree = "<group>"; };
+		73F3B8B91DCB8C7400830CD4 /* MD5Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MD5Manager.h; sourceTree = "<group>"; };
 		73FB2D381DBA0A20008B5232 /* elian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = elian.h; sourceTree = "<group>"; };
 		73FB2D391DBA0A26008B5232 /* libelian.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libelian.a; sourceTree = "<group>"; };
 		73FBAA6E1DC1F7D700527A76 /* libAVCtrl_armv7s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVCtrl_armv7s.a; sourceTree = "<group>"; };
@@ -324,6 +324,7 @@
 				73905CB01DC7293B006CB811 /* OpenGLES.framework in Frameworks */,
 				73B805551DC89F46005AB68E /* libAVCtrl_i386.a in Frameworks */,
 				73924B461DB90AE800508979 /* libPwdEncrypt.a in Frameworks */,
+				73F3B8B81DCB8C3600830CD4 /* libMD5Manager.a in Frameworks */,
 				73B805561DC89F46005AB68E /* libAVCtrl_armv7.a in Frameworks */,
 				73B805571DC89F46005AB68E /* libAVCtrl_arm64.a in Frameworks */,
 				73FB2D3A1DBA0A26008B5232 /* libelian.a in Frameworks */,
@@ -441,11 +442,10 @@
 		73924AA41DB90AE800508979 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				73F3B8B91DCB8C7400830CD4 /* MD5Manager.h */,
 				73FBAA7D1DC1FE4D00527A76 /* Constants.h */,
 				73924AA51DB90AE800508979 /* FListManager.h */,
 				73924AA61DB90AE800508979 /* FListManager.m */,
-				73924AA71DB90AE800508979 /* MD5Manager.h */,
-				73924AA81DB90AE800508979 /* MD5Manager.m */,
 				73924AAB1DB90AE800508979 /* ShakeManager.h */,
 				73924AAC1DB90AE800508979 /* ShakeManager.m */,
 				73905CB71DC73CBE006CB811 /* Utils.h */,
@@ -595,6 +595,7 @@
 				73924BEF1DB91CA400508979 /* libsqlite3.0.tbd */,
 				73924BED1DB91C9A00508979 /* libbz2.1.0.tbd */,
 				73924BEB1DB91C9300508979 /* libz.tbd */,
+				73F3B8B71DCB8C3600830CD4 /* libMD5Manager.a */,
 				73924BE91DB91C8900508979 /* libiconv.tbd */,
 				73924B6D1DB9101A00508979 /* libRTSP.a */,
 				73FBAA6E1DC1F7D700527A76 /* libAVCtrl_armv7s.a */,
@@ -796,7 +797,6 @@
 				73924B591DB90AE800508979 /* RtspInterface.mm in Sources */,
 				73924B5B1DB90AE800508979 /* CustomView.m in Sources */,
 				73924B441DB90AE800508979 /* ShakeManager.m in Sources */,
-				73924B421DB90AE800508979 /* MD5Manager.m in Sources */,
 				73924B511DB90AE800508979 /* NetManager.m in Sources */,
 				73924B371DB90AE800508979 /* FMDatabase.m in Sources */,
 				73924B3A1DB90AE800508979 /* FMResultSet.m in Sources */,
