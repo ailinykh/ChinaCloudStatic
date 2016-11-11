@@ -21,7 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		736377851DBE3BAA0027EE34 /* Contact.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924A8A1DB90AE800508979 /* Contact.h */; };
 		736377861DBE3D780027EE34 /* FListManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AA51DB90AE800508979 /* FListManager.h */; };
 		736377871DBE43810027EE34 /* ShakeManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AAB1DB90AE800508979 /* ShakeManager.h */; };
 		736377ED1DBF615A00732280 /* TouchButton.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B2A1DB90AE800508979 /* TouchButton.h */; };
@@ -30,6 +29,10 @@
 		736377F11DBF64B400732280 /* YProgressView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B2C1DB90AE800508979 /* YProgressView.h */; };
 		737E7E511DBA04EE0040800F /* Rtsp_instance.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B221DB90AE800508979 /* Rtsp_instance.h */; };
 		737E7E521DBA04F50040800F /* RtspInterface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924B231DB90AE800508979 /* RtspInterface.h */; };
+		73864CAD1DD4E4BA00CED450 /* ChinaCloudStatic.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924A771DB90A7D00508979 /* ChinaCloudStatic.h */; };
+		73864CB81DD5B72B00CED450 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 73864CB61DD5B72B00CED450 /* Contact.m */; };
+		73864CBB1DD5C07200CED450 /* MD5Manager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73F3B8B91DCB8C7400830CD4 /* MD5Manager.h */; };
+		73864CBC1DD5C29C00CED450 /* Contact.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73864CB71DD5B72B00CED450 /* Contact.h */; };
 		73905CAE1DC728FE006CB811 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73905CAD1DC728FE006CB811 /* OpenGLView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73905CB01DC7293B006CB811 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73905CAF1DC7293B006CB811 /* OpenGLES.framework */; };
 		73905CB11DC72E79006CB811 /* OpenGLView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73905CAC1DC728FE006CB811 /* OpenGLView.h */; };
@@ -44,7 +47,6 @@
 		73924A791DB90A7D00508979 /* ChinaCloudStatic.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924A781DB90A7D00508979 /* ChinaCloudStatic.m */; };
 		73924B331DB90AE800508979 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924A861DB90AE800508979 /* Alarm.m */; };
 		73924B341DB90AE800508979 /* AlarmDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924A881DB90AE800508979 /* AlarmDAO.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		73924B351DB90AE800508979 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924A8B1DB90AE800508979 /* Contact.m */; };
 		73924B361DB90AE800508979 /* ContactDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924A8D1DB90AE800508979 /* ContactDAO.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73924B371DB90AE800508979 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924A901DB90AE800508979 /* FMDatabase.m */; };
 		73924B381DB90AE800508979 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924A921DB90AE800508979 /* FMDatabasePool.m */; };
@@ -82,14 +84,12 @@
 		73924B5D1DB90AE800508979 /* YProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73924B2D1DB90AE800508979 /* YProgressView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		73924B5E1DB90AE800508979 /* empty.mm in Sources */ = {isa = PBXBuildFile; fileRef = 73924B301DB90AE800508979 /* empty.mm */; };
 		73924B721DB9101A00508979 /* libRTSP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73924B6D1DB9101A00508979 /* libRTSP.a */; };
-		73B805551DC89F46005AB68E /* libAVCtrl_i386.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B805521DC89F46005AB68E /* libAVCtrl_i386.a */; };
 		73B805561DC89F46005AB68E /* libAVCtrl_armv7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B805531DC89F46005AB68E /* libAVCtrl_armv7.a */; };
 		73B805571DC89F46005AB68E /* libAVCtrl_arm64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B805541DC89F46005AB68E /* libAVCtrl_arm64.a */; };
 		73B805591DC8A0ED005AB68E /* P2PCInterface.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73B805581DC89F79005AB68E /* P2PCInterface.h */; };
 		73E63D811DBA178B0015E102 /* elian.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73FB2D381DBA0A20008B5232 /* elian.h */; };
 		73E63D8C1DBA1AB50015E102 /* GCDAsyncUdpSocket.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AA21DB90AE800508979 /* GCDAsyncUdpSocket.h */; };
 		73F3B8B81DCB8C3600830CD4 /* libMD5Manager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F3B8B71DCB8C3600830CD4 /* libMD5Manager.a */; };
-		73F3B8BA1DCB8C8500830CD4 /* MD5Manager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73F3B8B91DCB8C7400830CD4 /* MD5Manager.h */; };
 		73FB2D231DBA0761008B5232 /* UDManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924A9D1DB90AE800508979 /* UDManager.h */; };
 		73FB2D251DBA0774008B5232 /* AccountResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924ABD1DB90AE800508979 /* AccountResult.h */; };
 		73FB2D261DBA077C008B5232 /* LoginResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 73924AC71DB90AE800508979 /* LoginResult.h */; };
@@ -110,7 +110,9 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				73F3B8BA1DCB8C8500830CD4 /* MD5Manager.h in CopyFiles */,
+				73864CBC1DD5C29C00CED450 /* Contact.h in CopyFiles */,
+				73864CBB1DD5C07200CED450 /* MD5Manager.h in CopyFiles */,
+				73864CAD1DD4E4BA00CED450 /* ChinaCloudStatic.h in CopyFiles */,
 				73B805591DC8A0ED005AB68E /* P2PCInterface.h in CopyFiles */,
 				73905CBD1DC751F4006CB811 /* PAIOUnit.h in CopyFiles */,
 				73905CBC1DC7453F006CB811 /* Utils.h in CopyFiles */,
@@ -126,7 +128,6 @@
 				736377ED1DBF615A00732280 /* TouchButton.h in CopyFiles */,
 				736377871DBE43810027EE34 /* ShakeManager.h in CopyFiles */,
 				736377861DBE3D780027EE34 /* FListManager.h in CopyFiles */,
-				736377851DBE3BAA0027EE34 /* Contact.h in CopyFiles */,
 				73E63D8C1DBA1AB50015E102 /* GCDAsyncUdpSocket.h in CopyFiles */,
 				73E63D811DBA178B0015E102 /* elian.h in CopyFiles */,
 				73FB2D281DBA07B4008B5232 /* P2PClient.h in CopyFiles */,
@@ -142,6 +143,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		73864CB61DD5B72B00CED450 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		73864CB71DD5B72B00CED450 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		73905CAC1DC728FE006CB811 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
 		73905CAD1DC728FE006CB811 /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
 		73905CAF1DC7293B006CB811 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -154,8 +157,6 @@
 		73924A861DB90AE800508979 /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
 		73924A871DB90AE800508979 /* AlarmDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmDAO.h; sourceTree = "<group>"; };
 		73924A881DB90AE800508979 /* AlarmDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmDAO.m; sourceTree = "<group>"; };
-		73924A8A1DB90AE800508979 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
-		73924A8B1DB90AE800508979 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		73924A8C1DB90AE800508979 /* ContactDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDAO.h; sourceTree = "<group>"; };
 		73924A8D1DB90AE800508979 /* ContactDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDAO.m; sourceTree = "<group>"; };
 		73924A8F1DB90AE800508979 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -235,7 +236,6 @@
 		73924BEB1DB91C9300508979 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		73924BED1DB91C9A00508979 /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
 		73924BEF1DB91CA400508979 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		73B805521DC89F46005AB68E /* libAVCtrl_i386.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVCtrl_i386.a; sourceTree = "<group>"; };
 		73B805531DC89F46005AB68E /* libAVCtrl_armv7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVCtrl_armv7.a; sourceTree = "<group>"; };
 		73B805541DC89F46005AB68E /* libAVCtrl_arm64.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAVCtrl_arm64.a; sourceTree = "<group>"; };
 		73B805581DC89F79005AB68E /* P2PCInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P2PCInterface.h; sourceTree = "<group>"; };
@@ -322,7 +322,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				73905CB01DC7293B006CB811 /* OpenGLES.framework in Frameworks */,
-				73B805551DC89F46005AB68E /* libAVCtrl_i386.a in Frameworks */,
 				73924B461DB90AE800508979 /* libPwdEncrypt.a in Frameworks */,
 				73F3B8B81DCB8C3600830CD4 /* libMD5Manager.a in Frameworks */,
 				73B805561DC89F46005AB68E /* libAVCtrl_armv7.a in Frameworks */,
@@ -396,8 +395,8 @@
 				73924A861DB90AE800508979 /* Alarm.m */,
 				73924A871DB90AE800508979 /* AlarmDAO.h */,
 				73924A881DB90AE800508979 /* AlarmDAO.m */,
-				73924A8A1DB90AE800508979 /* Contact.h */,
-				73924A8B1DB90AE800508979 /* Contact.m */,
+				73864CB61DD5B72B00CED450 /* Contact.m */,
+				73864CB71DD5B72B00CED450 /* Contact.h */,
 				73924A8C1DB90AE800508979 /* ContactDAO.h */,
 				73924A8D1DB90AE800508979 /* ContactDAO.m */,
 				73924A8E1DB90AE800508979 /* FMDatabase */,
@@ -599,7 +598,6 @@
 				73924BE91DB91C8900508979 /* libiconv.tbd */,
 				73924B6D1DB9101A00508979 /* libRTSP.a */,
 				73FBAA6E1DC1F7D700527A76 /* libAVCtrl_armv7s.a */,
-				73B805521DC89F46005AB68E /* libAVCtrl_i386.a */,
 				73B805531DC89F46005AB68E /* libAVCtrl_armv7.a */,
 				73B805541DC89F46005AB68E /* libAVCtrl_arm64.a */,
 			);
@@ -791,7 +789,7 @@
 				73924B331DB90AE800508979 /* Alarm.m in Sources */,
 				73924B4C1DB90AE800508979 /* CheckNewMessageResult.m in Sources */,
 				73924A791DB90A7D00508979 /* ChinaCloudStatic.m in Sources */,
-				73924B351DB90AE800508979 /* Contact.m in Sources */,
+				73864CB81DD5B72B00CED450 /* Contact.m in Sources */,
 				73924B3B1DB90AE800508979 /* LocalDevice.m in Sources */,
 				73924B521DB90AE800508979 /* RegisterResult.m in Sources */,
 				73924B591DB90AE800508979 /* RtspInterface.mm in Sources */,

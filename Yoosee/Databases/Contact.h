@@ -27,6 +27,8 @@
 @property (strong, nonatomic) NSString *contactId;
 @property (strong, nonatomic) NSString *contactName;
 @property (strong, nonatomic) NSString *contactPassword;
+@property (strong, nonatomic) NSString *contactCloudProjectId;
+@property (nonatomic) BOOL isOwner;
 @property (nonatomic) NSInteger contactType;
 
 @property (nonatomic) NSInteger onLineState;
@@ -42,5 +44,8 @@
 @property (strong, nonatomic) NSString *deviceCurVersion;//设备检查更新
 @property (strong, nonatomic) NSString *deviceUpgVersion;//设备检查更新
 @property (nonatomic) NSInteger result_sd_server;//设备检查更新
+
+- (NSString *)saveToString;
++ (Contact *)loadFromString:(NSString *)jsonString;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "Contact.h"
-#import "Constants.h"
+
 @implementation Contact
 
 -(id)init{
@@ -26,6 +26,42 @@
 
 - (NSString*)deviceId {
     return _contactId;
+}
+
+- (NSString *)saveToString {
+    
+    NSDictionary *contactInfo = @{@"contactID":             _contactId,
+                                  @"contactName":           _contactName,
+                                  @"contactPass":           _contactPassword,
+                                  @"contactType":           [NSString stringWithFormat:@"%ld", (long)_contactType],
+                                  @"contactCloudProjectId": _contactCloudProjectId,
+                                  @"contactIsOwner":        _isOwner ? @"1" : @"0"
+                                  };
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:contactInfo
+                                                       options:(NSJSONWritingOptions)NSJSONWritingPrettyPrinted
+                                                         error:nil];
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+}
+
++ (Contact *)loadFromString:(NSString *)jsonString {
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+    if (json && [json isKindOfClass:NSDictionary.class]) {
+        Contact *contact = [[Contact alloc] init];
+        if ([json[@"contactID"] length] > 0) {
+            contact.contactId = json[@"contactID"];
+            contact.contactName = json[@"contactName"];
+            contact.contactPassword = json[@"contactPass"];
+            contact.contactType = [json[@"contactType"] integerValue];
+            contact.contactCloudProjectId = json[@"contactCloudProjectId"];
+            contact.isOwner = [json[@"contactIsOwner"] boolValue];
+
+            return contact;
+        }
+    }
+    return nil;
+    
 }
 
 @end
