@@ -23,19 +23,29 @@
     [aCoder encodeObject:self.sessionId forKey:@"sessionId"];
     [aCoder encodeObject:self.countryCode forKey:@"countryCode"];
     [aCoder encodeInt:self.error_code forKey:@"error_code"];
+    
+    [aCoder encodeObject:self.smtpServer forKey:@"smtpServer"];
+    [aCoder encodeInt:_smtpPort forKey:@"smtpPort"];
+    [aCoder encodeObject:self.pushEmail forKey:@"pushEmail"];
+    [aCoder encodeObject:self.pushPassword forKey:@"pushPassword"];
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
     self = [super init];
     if(self){
-        self.contactId = [aDecoder decodeObjectForKey:@"contactId"];
-        self.rCode1 = [aDecoder decodeObjectForKey:@"rCode1"];
-        self.rCode2 = [aDecoder decodeObjectForKey:@"rCode2"];
-        self.phone = [aDecoder decodeObjectForKey:@"phone"];
-        self.email = [aDecoder decodeObjectForKey:@"email"];
-        self.sessionId = [aDecoder decodeObjectForKey:@"sessionId"];
-        self.countryCode = [aDecoder decodeObjectForKey:@"countryCode"];
-        self.error_code = [aDecoder decodeIntForKey:@"error_code"];
+        self.contactId      = [aDecoder decodeObjectForKey:@"contactId"];
+        self.rCode1         = [aDecoder decodeObjectForKey:@"rCode1"];
+        self.rCode2         = [aDecoder decodeObjectForKey:@"rCode2"];
+        self.phone          = [aDecoder decodeObjectForKey:@"phone"];
+        self.email          = [aDecoder decodeObjectForKey:@"email"];
+        self.sessionId      = [aDecoder decodeObjectForKey:@"sessionId"];
+        self.countryCode    = [aDecoder decodeObjectForKey:@"countryCode"];
+        self.error_code     = [aDecoder decodeIntForKey:@"error_code"];
+        
+        self.smtpServer     = [aDecoder decodeObjectForKey:@"smtpServer"];
+        self.smtpPort       = [aDecoder decodeIntForKey:@"smtpPort"];
+        self.pushEmail      = [aDecoder decodeObjectForKey:@"pushEmail"];
+        self.pushPassword   = [aDecoder decodeObjectForKey:@"pushPassword"];
     }
     return self;
 }

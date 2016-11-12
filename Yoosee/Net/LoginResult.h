@@ -17,4 +17,9 @@
 @property (strong, nonatomic) NSString* sessionId;
 @property (strong, nonatomic) NSString* countryCode;
 @property (nonatomic) int error_code;
+
+@property (nonatomic, strong) NSString *smtpServer;
+@property (nonatomic) int smtpPort;
+@property (nonatomic, strong) NSString *pushEmail;
+@property (nonatomic, strong) NSString *pushPassword;
 @end
