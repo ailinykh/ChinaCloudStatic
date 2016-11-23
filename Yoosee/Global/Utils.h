@@ -28,7 +28,7 @@ enum
 +(NSString*)convertTimeByInterval:(NSString*)timeInterval;
 +(NSArray*)getScreenshotFiles;
 
-+(void)saveScreenshotFile:(NSData*)data;
++(void)saveScreenshotFileForContactId:(NSString*)contactId withData:(NSData*)data;
 +(NSString*)getScreenshotFilePathWithName:(NSString*)fileName;
 
 +(void)saveHeaderFileWithId:(NSString*)contactId data:(NSData*)data;

@@ -214,7 +214,7 @@
     return imgFiles;
 }
 
-+(void)saveScreenshotFile:(NSData*)data{
++(void)saveScreenshotFileForContactId:(NSString*)contactId withData:(NSData*)data {
     NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
     NSString *savePath = nil;
@@ -227,7 +227,7 @@
         [manager createDirectoryAtPath:savePath withIntermediateDirectories:YES attributes:nil error:nil];
     }
     long timeInterval = [Utils getCurrentTimeInterval];
-    [data writeToFile:[NSString stringWithFormat:@"%@/%ld.png",savePath,timeInterval] atomically:YES];
+    [data writeToFile:[NSString stringWithFormat:@"%@/%@_%ld.png", savePath, contactId, timeInterval] atomically:YES];
 }
 
 +(NSString*)getScreenshotFilePathWithName:(NSString *)fileName{
