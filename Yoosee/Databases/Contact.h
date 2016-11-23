@@ -37,7 +37,7 @@
 @property (nonatomic) NSInteger defenceState;
 
 @property (nonatomic) BOOL isClickDefenceStateBtn;
-
+@property (nonatomic) BOOL isSoundDisabled;
 @property (nonatomic) BOOL isGettingOnLineState;//isGettingOnLineState
 
 @property (nonatomic) BOOL isNewVersionDevice;//设备检查更新

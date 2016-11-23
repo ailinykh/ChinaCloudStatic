@@ -35,7 +35,8 @@
                                   @"contactPass":           _contactPassword,
                                   @"contactType":           [NSString stringWithFormat:@"%ld", (long)_contactType],
                                   @"contactCloudProjectId": _contactCloudProjectId,
-                                  @"contactIsOwner":        _isOwner ? @"1" : @"0"
+                                  @"contactIsOwner":        _isOwner ? @"1" : @"0",
+                                  @"isSoundDisabled":       _isSoundDisabled ? @"1" : @"0"
                                   };
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:contactInfo
@@ -56,6 +57,7 @@
             contact.contactType = [json[@"contactType"] integerValue];
             contact.contactCloudProjectId = json[@"contactCloudProjectId"];
             contact.isOwner = [json[@"contactIsOwner"] boolValue];
+            contact.isSoundDisabled = [json[@"isSoundDisabled"] boolValue];
 
             return contact;
         }
