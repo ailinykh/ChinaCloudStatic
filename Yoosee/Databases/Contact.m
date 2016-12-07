@@ -33,7 +33,7 @@
     NSDictionary *contactInfo = @{@"contactID":             _contactId,
                                   @"contactName":           _contactName,
                                   @"contactPass":           _contactPassword,
-                                  @"contactType":           [NSString stringWithFormat:@"%ld", (long)_contactType],
+                                  @"contactType":           @(_contactType),
                                   @"contactCloudProjectId": _contactCloudProjectId,
                                   @"contactIsOwner":        _isOwner ? @"1" : @"0",
                                   @"isSoundDisabled":       _isSoundDisabled ? @"1" : @"0"
@@ -54,7 +54,7 @@
             contact.contactId = json[@"contactID"];
             contact.contactName = json[@"contactName"];
             contact.contactPassword = json[@"contactPass"];
-            contact.contactType = [json[@"contactType"] integerValue];
+            contact.contactType = [json[@"contactType"] intValue];
             contact.contactCloudProjectId = json[@"contactCloudProjectId"];
             contact.isOwner = [json[@"contactIsOwner"] boolValue];
             contact.isSoundDisabled = [json[@"isSoundDisabled"] boolValue];

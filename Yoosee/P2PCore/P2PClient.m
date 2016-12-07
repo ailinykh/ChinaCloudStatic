@@ -907,9 +907,10 @@ void   vFriendsStatusUpdate(sFriendsType * pFriends )
         if(state==1){//离线的设备返回的type都是2（CONTACT_TYPE_NPC）//IP添加设备
             [manager setTypeWithId:contactId type:type];
         }
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"updateContactState"
+                                                            object:nil
+                                                          userInfo:@{@"contactId":contactId, @"type":@(type)}];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"updateContactState" object:nil];
     DLog(@"vFriendsStatusUpdate");
 }
 
