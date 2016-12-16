@@ -30,11 +30,11 @@
 
 - (NSString *)saveToString {
     
-    NSDictionary *contactInfo = @{@"contactID":             _contactId,
-                                  @"contactName":           _contactName,
-                                  @"contactPass":           _contactPassword,
+    NSDictionary *contactInfo = @{@"contactID":             _contactId ? _contactId : @"",
+                                  @"contactName":           _contactName ? _contactName : @"",
+                                  @"contactPass":           _contactPassword ? _contactPassword : @"",
                                   @"contactType":           @(_contactType),
-                                  @"contactCloudProjectId": _contactCloudProjectId,
+                                  @"contactCloudProjectId": _contactCloudProjectId ? _contactCloudProjectId : @"",
                                   @"contactIsOwner":        _isOwner ? @"1" : @"0",
                                   @"isSoundDisabled":       _isSoundDisabled ? @"1" : @"0"
                                   };
