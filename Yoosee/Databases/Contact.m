@@ -36,6 +36,7 @@
                                   @"contactType":           @(_contactType),
                                   @"contactCloudProjectId": _contactCloudProjectId ? _contactCloudProjectId : @"",
                                   @"contactIsOwner":        _isOwner ? @"1" : @"0",
+                                  @"contactIsNewDevice":    _isNewDevice ? @"1" : @"0",
                                   @"isSoundDisabled":       _isSoundDisabled ? @"1" : @"0"
                                   };
     
@@ -58,7 +59,8 @@
             contact.contactCloudProjectId = json[@"contactCloudProjectId"];
             contact.isOwner = [json[@"contactIsOwner"] boolValue];
             contact.isSoundDisabled = [json[@"isSoundDisabled"] boolValue];
-
+            contact.isNewDevice = [json[@"contactIsNewDevice"] boolValue];
+            
             return contact;
         }
     }

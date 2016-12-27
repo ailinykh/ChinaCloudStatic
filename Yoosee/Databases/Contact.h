@@ -39,6 +39,7 @@
 @property (nonatomic) BOOL isClickDefenceStateBtn;
 @property (nonatomic) BOOL isSoundDisabled;
 @property (nonatomic) BOOL isGettingOnLineState;//isGettingOnLineState
+@property (nonatomic) BOOL isNewDevice;
 
 @property (nonatomic) BOOL isNewVersionDevice;//设备检查更新
 @property (strong, nonatomic) NSString *deviceCurVersion;//设备检查更新
